@@ -1,0 +1,43 @@
+{
+    "test1": "super test",
+    "visits": 697,
+    "users": {
+        "tal": {
+            "username": "tal",
+            "password": "123456",
+            "joined": "2020-06-11T08:49:33.114Z"
+        },
+        "obama": {
+            "username": "obama",
+            "password": "12345",
+            "joined": "2020-06-11T08:52:39.268Z"
+        },
+        "trump": {
+            "username": "trump",
+            "password": "123123",
+            "joined": "2020-06-11T08:52:53.982Z"
+        },
+        "aaa": {
+            "username": "aaa",
+            "password": "123",
+            "joined": "2020-06-11T08:58:42.641Z"
+        }
+    },
+    "user": {
+        "Mother": {
+            "username": "Mother",
+            "password": "Fucker",
+            "joined": "2020-06-22T13:52:56.860Z"
+        },
+        "dfg": {
+            "username": "dfg",
+            "password": "dfg",
+            "joined": "2020-06-22T13:57:42.152Z"
+        },
+        "danlevy": {
+            "username": "danlevy",
+            "password": "ha",
+            "joined": "2020-06-22T14:21:06.234Z"
+        }
+    }
+}
