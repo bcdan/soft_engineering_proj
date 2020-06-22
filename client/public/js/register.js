@@ -11,7 +11,8 @@ form.addEventListener('submit', (e) => {
 		},
 		body: JSON.stringify({ username, password }),
 	})
-		.then((res) => res.json())
+		//.then((res) => res.json())
+		.then(res=>res.text())
 		.then((data) => {
 			localStorage.setItem('token', data.access_token);
 			location.href = '/';
