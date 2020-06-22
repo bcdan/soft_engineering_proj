@@ -1,0 +1,36 @@
+{
+  "name": "game_store",
+  "version": "0.0.0",
+  "description": "buy/rent video games",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "eslint": "^7.3.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "express": "^4.17.1",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "node-json-db": "^1.1.0",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcdan/soft_engineering_proj.git"
+  },
+  "author": "Dan Levy , Leead Keness",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bcdan/soft_engineering_proj/issues"
+  },
+  "homepage": "https://github.com/bcdan/soft_engineering_proj#readme"
+}

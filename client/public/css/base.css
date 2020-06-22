@@ -1,0 +1,8 @@
+body,html {
+    margin:0;
+    height: 100%;
+}
+body {
+    padding:1em;
+    box-sizing: border-box;
+}
