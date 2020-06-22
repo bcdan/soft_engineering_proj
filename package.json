@@ -1,7 +1,7 @@
 {
   "name": "game_store",
   "version": "0.0.0",
-  "description": "buy/rent video games",
+  "description": "buy video games",
   "main": "server.js",
   "directories": {
     "lib": "lib"
@@ -20,8 +20,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+		"dev": "nodemon server.js -e js"
   },
   "repository": {
     "type": "git",
