@@ -50,7 +50,7 @@ router.post('/register', (req, res) => {
 		password,
 		joined: new Date().toISOString(),
 	};
-	db.push(`/user/${username}`, user);
+	db.push(`/users/${username}`, user);
 
 	// create a jwt token for the user
 	const payload = { username: user.username, joined: user.joined };
