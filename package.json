@@ -8,19 +8,22 @@
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",
-    "eslint": "^7.3.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.21.2",
     "express": "^4.17.1",
     "husky": "^4.2.5",
-    "jest": "^26.0.1",
     "jsonwebtoken": "^8.5.1",
     "node-json-db": "^1.1.0",
     "nodemon": "^2.0.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^26.0.5",
+    "eslint": "^7.5.0",
+    "jest": "^26.1.0"
+  },
   "scripts": {
-		"dev": "nodemon server.js -e js"
+    "dev": "nodemon server.js -e js",
+    "test": "eslint ."
   },
   "repository": {
     "type": "git",
