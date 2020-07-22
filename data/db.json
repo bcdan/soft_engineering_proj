@@ -1,36 +1,6 @@
 {
     "test1": "super test",
-    "visits": 247,
+    "visits": 0,
     "users": {
-        "dan": {
-            "username": "dan",
-            "password": "test",
-            "joined": "2020-06-22T21:00:47.601Z"
-        },
-        "lederp": {
-            "username": "lederp",
-            "password": "1234",
-            "joined": "2020-07-20T14:24:21.573Z"
-        },
-        "asdasd": {
-            "username": "asdasd",
-            "password": "123123123123",
-            "joined": "2020-07-20T14:25:03.069Z"
-        },
-        "isthisworking": {
-            "username": "isthisworking",
-            "password": "1234",
-            "joined": "2020-07-20T14:29:36.387Z"
-        },
-        "hello": {
-            "username": "hello",
-            "password": "asdasd",
-            "joined": "2020-07-20T14:32:08.983Z"
-        },
-        "asdasdasd": {
-            "username": "asdasdasd",
-            "password": "asdasdasd",
-            "joined": "2020-07-20T14:32:33.774Z"
-        }
     }
 }

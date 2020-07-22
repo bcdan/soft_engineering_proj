@@ -39,8 +39,13 @@ router.post('/register', (req, res) => {
 		return res.sendStatus(400);
 	}
 	// make sure user does not exist
-	const { username, password } = req.body;
+	const { username, password, passwordConfirm } = req.body;
 	if (db.exists(`/users/${username}`)) {
+		return res.sendStatus(400);
+	}
+
+	//if pass != confirm pass
+	if (password !== passwordConfirm) {
 		return res.sendStatus(400);
 	}
 
@@ -58,6 +63,7 @@ router.post('/register', (req, res) => {
 
 	// set cookie for the client with the jwt
 	res.cookie(COOKIE_NAME, accessToken, { httpOnly: true });
+
 	res.redirect('/');
 });
 

@@ -4,12 +4,13 @@ form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	const username = form.children.username.value;
 	const password = form.children.password.value;
+	const passwordConfirm = form.children.passwordConfirm.value;
 	fetch('/register', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({ username, password }),
+		body: JSON.stringify({ username, password, passwordConfirm }),
 	})
 		.then(res=>res.text())
 		.then((data) => {
