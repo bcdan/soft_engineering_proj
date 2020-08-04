@@ -39,7 +39,7 @@ router.post('/register', (req, res) => {
 		return res.sendStatus(400);
 	}
 	// make sure user does not exist
-	const { username, password, passwordConfirm } = req.body;
+	const { username, password, passwordConfirm, email, firstname, lastname, birthday } = req.body;
 	if (db.exists(`/users/${username}`)) {
 		return res.sendStatus(400);
 	}
@@ -48,11 +48,24 @@ router.post('/register', (req, res) => {
 	if (password !== passwordConfirm) {
 		return res.sendStatus(400);
 	}
+	//if email already registered
+	const allUsers = db.getData('/users/');
+	for (let k in allUsers) {
+		if (k[email] == '1234@gg') {
+			console.log(`Bitch ${k[username]}`);
+		}
+	}
+
+
 
 	// create a new user record in the json db
 	const user = {
 		username,
 		password,
+		email,
+		firstname,
+		lastname,
+		birthday,
 		joined: new Date().toISOString(),
 	};
 	db.push(`/users/${username}`, user);
