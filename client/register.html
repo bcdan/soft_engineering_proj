@@ -14,9 +14,15 @@
     <main>
         <form>
             <h1>Register page</h1>
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
-            <input type="password" name="passwordConfirm" placeholder="Confirm Password">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="passwordConfirm" placeholder="Confirm Password" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="firstname" placeholder="First name">
+                <input type="text" name="lastname" placeholder="Last name">
+                <input type="date" name="date" min="1910-01-01" >
+
+
             <button type="submit"> Register </button>
             <a href="/login"> Have an account? login</a>
         </form>
