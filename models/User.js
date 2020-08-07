@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-	name: {
+	firstName: {
+		type: String,
+		required: true
+	},
+	lastName: {
 		type: String,
 		required: true
 	},
@@ -16,6 +20,24 @@ const UserSchema = new mongoose.Schema({
 	date: {
 		type: String,
 		default: Date.now
+	},
+	inventory: {
+		games: [{
+			title: {
+				type: String,
+				default: ''
+			},
+			CDKey: {
+				type: String,
+				default: ''
+			},
+
+		}],
+		amount: {
+			type: Number,
+			default: 0
+		}
+
 	}
 
 });
