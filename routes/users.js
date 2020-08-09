@@ -7,10 +7,11 @@ const passport = require('passport');
 const User = require('../models/User');
 
 // Login Page
-router.get('/login', (req, res) => res.render('login'));
+router.get('/login', (req, res) => res.render('login',{title:'Login'}));
+
 
 // Register Page
-router.get('/register', (req, res) => res.render('register'));
+router.get('/register', (req, res) => res.render('register',{title:'Register'}));
 
 // Register
 router.post('/register', (req, res) => {
@@ -94,5 +95,6 @@ router.get('/logout', (req, res) => {
 	req.flash('success_msg', 'You are logged out');
 	res.redirect('/users/login');
 });
+
 
 module.exports = router;

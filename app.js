@@ -63,11 +63,13 @@ app.use((req, res, next) => {
 });
 
 
-
-
 //Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+//404 page
+app.use((req,res,next)=>{
+	res.status(404).render('404',{title:'Page Not found!'});
+});
 
 
 const PORT = process.env.PORT || 5000;
