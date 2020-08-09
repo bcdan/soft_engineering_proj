@@ -44,7 +44,7 @@ app.use(session({
 		mongooseConnection: mongoose.connection,
 		autoRemove: 'interval',     
 		autoRemoveInterval: 60*24*2 // In minutes. Default
-  })
+	})
 }));
 
 //Passport middleware
@@ -67,7 +67,7 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 //404 page
-app.use((req,res,next)=>{
+app.use((req,res)=>{
 	res.status(404).render('404',{title:'Page Not found!'});
 });
 

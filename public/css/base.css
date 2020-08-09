@@ -308,6 +308,59 @@ body{
     font-size: 15px;
 
 }
+
+
+/*------------------Single product----------*/
+.single-product{
+    margin-top: 70px;
+}
+.new-arrival{
+    background:green;
+    width: 50px;
+    color:white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 20px;
+
+}
+.col-md-7 h2{
+    color:#555;
+}
+.single-product .fa{
+    color:#1E90FF;
+}
+.single-product .price{
+    font-size:26px;
+    font-weight: bold;
+    padding-top:20px;
+}
+.single-product .btn-primary
+{
+    background: #1E90FF !important;
+    color:white;
+    font-size:15px;
+    border:none;
+    box-shadow: none;
+}
+
+.single-product img{
+    float:left;
+    width:400px;
+    height:500px;
+}
+
+.product-description h4{
+    margin-top:50px;
+    color:#1E90FF;
+}
+.product-description p{
+    margin-top:30x;
+
+}
+.product-description hr
+{
+    margin-bottom: 50px;
+}
 /*
 *{
     box-sizing: border-box;
