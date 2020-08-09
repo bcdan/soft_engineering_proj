@@ -31,8 +31,9 @@
     "jest": "^26.1.0"
   },
   "scripts": {
-    "dev": "nodemon server.js -e js",
-    "test": "eslint ."
+    "dev": "nodemon app.js -e js",
+    "test": "eslint .",
+    "start":"node app.js"
   },
   "repository": {
     "type": "git",
