@@ -1,9 +1,11 @@
 const express = require('express');
+const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 
 //passport config
@@ -23,6 +25,10 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
+//Static folder
+app.use(express.static(path.join(__dirname,'public')));
+
+
 //Body parser
 app.use(express.urlencoded({ extended: false }));
 
@@ -30,8 +36,15 @@ app.use(express.urlencoded({ extended: false }));
 //Express session
 app.use(session({
 	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
+	resave: false,
+	saveUninitialized: true,
+	cookie:{maxAge: 1* 60 * 60 *24 },
+	
+	store: new MongoStore({
+		mongooseConnection: mongoose.connection,
+		autoRemove: 'interval',     
+		autoRemoveInterval: 60*24*2 // In minutes. Default
+  })
 }));
 
 //Passport middleware
