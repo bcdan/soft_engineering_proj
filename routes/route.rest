@@ -1,0 +1,30 @@
+
+
+GET http://localhost:5000/admin/games
+
+###
+
+
+DELETE http://localhost:5000/admin/5f327d8e6899820aa4e1d97e
+
+###
+
+PATCH http://localhost:5000/admin/5f327e5a6488470b0864cee9
+Content-Type: application/json
+
+{
+    "title": "New title"
+}
+###
+
+POST http://localhost:5000/admin/
+Content-Type: application/json
+
+{   
+    
+    "game_id":1234,
+    "title":"Cock of Doody",
+    "cdkey":"COD-efgh-ijkl-mnopq",
+    "picture":"http://hello",
+    "price":60
+}

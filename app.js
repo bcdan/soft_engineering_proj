@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
+const bodyparser = require('body-parser');
 
 //passport config
 require('./config/passport')(passport);
@@ -30,7 +31,9 @@ app.use(express.static(path.join(__dirname,'public')));
 
 
 //Body parser
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.urlencoded({ extended: false }));
+app.use(bodyparser.urlencoded({extended:false}));
+app.use(bodyparser.json());
 
 
 //Express session
@@ -66,6 +69,8 @@ app.use((req, res, next) => {
 //Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/admin',require('./routes/admin'));
+
 //404 page
 app.use((req,res)=>{
 	res.status(404).render('404',{title:'Page Not found!'});
