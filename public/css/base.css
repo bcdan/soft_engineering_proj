@@ -347,6 +347,20 @@ body{
 {
     margin-bottom: 50px;
 }
+
+
+
+.not_found{
+    text-align: center;
+
+}
+.not_found a .btn-primary{
+    background-color: #1E90FF;
+    margin-top:20px;
+}
+.not_found .fa-dizzy{
+    color:red;
+}
 /*
 *{
     box-sizing: border-box;
