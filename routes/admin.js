@@ -8,6 +8,8 @@ router.get('/games', adminController.getAllGames);
 router.post('/add-product', adminController.postProduct);
 router.get('/games/:id', adminController.getSingleGame);
 router.patch('/games/:id', adminController.updateGame);
-router.delete('/games/:id', adminController.deleteGame);
+//router.delete('/games/:id', adminController.deleteGame);
+router.post('/delete-product/:id', adminController.deleteGame);
+
 
 module.exports = router;
