@@ -27,12 +27,12 @@ app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 //Static folder
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 //Body parser
 //app.use(express.urlencoded({ extended: false }));
-app.use(bodyparser.urlencoded({extended:false}));
+app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
 
@@ -41,12 +41,12 @@ app.use(session({
 	secret: 'secret',
 	resave: false,
 	saveUninitialized: true,
-	cookie:{maxAge: 1* 60 * 60 *24 },
-	
+	cookie: { maxAge: 1 * 60 * 60 * 24 },
+
 	store: new MongoStore({
 		mongooseConnection: mongoose.connection,
-		autoRemove: 'interval',     
-		autoRemoveInterval: 60*24*2 // In minutes. Default
+		autoRemove: 'interval',
+		autoRemoveInterval: 60 * 24 * 2 // In minutes. Default
 	})
 }));
 
@@ -69,11 +69,11 @@ app.use((req, res, next) => {
 //Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-app.use('/admin',require('./routes/admin'));
+app.use('/admin', require('./routes/admin'));
 
 //404 page
-app.use((req,res)=>{
-	res.status(404).render('404',{title:'Page Not found!'});
+app.use((req, res) => {
+	res.status(404).render('404', { title: 'Page Not found!' });
 });
 
 
