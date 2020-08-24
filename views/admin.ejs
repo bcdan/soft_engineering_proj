@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= title %></title>
 </head>
 <body>
-    
+	<div class="col-lg-9">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Admin page</h2>
+				<form action="/admin/add-product" method="GET">
+					<button type="submit" class="btn btn-primary">Add a game</button>
+				</form>
+
+				<form action="/admin/games" method="GET">
+					<button type="submit" class="btn btn-primary">Get all games</button>
+				</form>
+				<br>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
