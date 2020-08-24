@@ -32,7 +32,15 @@ exports.postProduct = (async (req, res) => {
 exports.getAllGames = (async (req, res) => {
 	try {
 		const games = await Game.find();
-		res.json(games);
+		const gameArray = [];
+		games.forEach(agame => {
+			gameArray.push(agame);
+		});
+		//res.json(games);
+		//res.send(gameArray);
+		res.render('admin-games', { title: 'Admin game list', products: gameArray });
+
+
 	} catch (err) {
 		res.status(500).json({ message: err.message });
 
@@ -79,7 +87,8 @@ exports.deleteGame = (async (req, res) => {
 	try {
 		await getGame(req, res);
 		await res.game.remove();
-		res.json({ message: 'Deleted game' });
+		//res.json({ message: 'Deleted game' });
+		res.redirect('/admin/games');
 	} catch (err) {
 		res.status(500).json({ msg: err.message });
 	}

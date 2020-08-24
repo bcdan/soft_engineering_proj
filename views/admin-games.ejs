@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= title %></title>
+</head>
+<body>
+		<div class="row">
+			<% for(let p of products) {%>
+				<div class="col-lg-4 col-md-6 mb-4">
+					<div class="card h-100">
+						<div class="card-body">
+							<h4 class="card-title"><%= p.title %>
+							</h4>
+							<h5>Game ID : <%= p.game_id %></h5>
+							<h5>CDKey : <%= p.cdkey %></h5>
+							<h5>Picture URL: <%= p.picture %></h5>
+							<h5>Price: <%= p.price %> $</h5>
+							<p class="card-text"><%= p.description %></p>
+						</div>
+							<div class="card-footer">
+							<form action="/admin/delete-product/<%=p.id%>" method="POST">
+								<input type="hidden" name="id" value ="<%=p.id%>">
+								<button type="submit" class="btn btn-danger">Delete</button>
+							</form>	
+
+							</div>
+					</div>
+				</div>
+			<%
+				}
+			%>
+
+		</div>
+	
+</body>
+</html>
