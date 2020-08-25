@@ -5,7 +5,7 @@ exports.getProductForm = (req, res) => {
 };
 
 exports.getAdminPage = (req, res) => {
-	res.render('admin', { title: 'Admin Page' });
+	res.render('admin', { title: 'Admin Page', name: req.user.firstName });
 };
 
 //post game
@@ -56,8 +56,14 @@ exports.getSingleGame = (async (req, res,) => {
 });
 
 
+
+
+exports.getEditProductPage = (async (req, res) => {
+	await getGame(req, res);
+	res.render('edit-product', { title: 'Edit', product: res.game });
+});
 //Update one game
-exports.updateGame = (async (req, res) => {
+exports.editGame = (async (req, res) => {
 	await getGame(req, res);
 
 	if (req.body.title != null) {
@@ -72,9 +78,13 @@ exports.updateGame = (async (req, res) => {
 	if (req.body.price != null) {
 		res.game.price = req.body.price;
 	}
+	if (req.body.description != null) {
+		res.game.description = req.body.description;
+	}
 	try {
-		const updatedGame = await res.game.save();
-		res.json(updatedGame);
+		await res.game.save();
+		//res.json(updatedGame);
+		res.redirect('/admin/games');
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}
@@ -99,7 +109,7 @@ exports.deleteGame = (async (req, res) => {
 async function getGame(req, res) {
 	let game;
 	try {
-		game = await Game.findById(req.params.id); // maybe change to ID and not game_id
+		game = await Game.findById(req.params.id);
 		if (game == null) {
 			return res.status(404).json({ msg: 'Cannot find game' });
 		}

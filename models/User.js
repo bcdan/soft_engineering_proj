@@ -38,6 +38,10 @@ const UserSchema = new mongoose.Schema({
 			default: 0
 		}
 
+	},
+	role: {
+		type: Boolean,
+		default: false
 	}
 
 });

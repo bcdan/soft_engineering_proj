@@ -41,7 +41,7 @@ app.use(session({
 	secret: 'secret',
 	resave: false,
 	saveUninitialized: true,
-	cookie: { maxAge: 1 * 60 * 60 * 24 },
+	cookie: { maxAge: 600000000 },
 
 	store: new MongoStore({
 		mongooseConnection: mongoose.connection,
@@ -49,6 +49,9 @@ app.use(session({
 		autoRemoveInterval: 60 * 24 * 2 // In minutes. Default
 	})
 }));
+
+
+//	cookie: { maxAge: 1 * 60 * 60 * 24 * 60 * 60 },
 
 //Passport middleware
 app.use(passport.initialize());

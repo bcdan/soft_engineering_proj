@@ -1,15 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/admin');
+const { ensureAuthenticatedAdmin } = require('../config/auth');
 
-router.get('/add-product', adminController.getProductForm);
-router.get('/', adminController.getAdminPage);
-router.get('/games', adminController.getAllGames);
-router.post('/add-product', adminController.postProduct);
-router.get('/games/:id', adminController.getSingleGame);
-router.patch('/games/:id', adminController.updateGame);
+router.get('/add-product', ensureAuthenticatedAdmin, adminController.getProductForm);
+router.get('/', ensureAuthenticatedAdmin, adminController.getAdminPage);
+router.get('/games', ensureAuthenticatedAdmin, adminController.getAllGames);
+router.post('/add-product', ensureAuthenticatedAdmin, adminController.postProduct);
+router.get('/games/:id', ensureAuthenticatedAdmin, adminController.getSingleGame);
+//router.patch('/games/:id', adminController.updateGame);
+router.get('/edit-product/:id', ensureAuthenticatedAdmin, adminController.getEditProductPage);
+router.post('/edit-product/:id', ensureAuthenticatedAdmin, adminController.editGame);
 //router.delete('/games/:id', adminController.deleteGame);
-router.post('/delete-product/:id', adminController.deleteGame);
+router.post('/delete-product/:id', ensureAuthenticatedAdmin, adminController.deleteGame);
 
 
 module.exports = router;
