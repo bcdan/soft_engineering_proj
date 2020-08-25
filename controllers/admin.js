@@ -5,7 +5,7 @@ exports.getProductForm = (req, res) => {
 };
 
 exports.getAdminPage = (req, res) => {
-	res.render('admin', { title: 'Admin Page' });
+	res.render('admin', { title: 'Admin Page', name: req.user.firstName });
 };
 
 //post game

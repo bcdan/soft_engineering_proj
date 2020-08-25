@@ -2,23 +2,38 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/css/admin.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><%= title %></title>
 </head>
 <body>
-	<div class="col-lg-9">
-		<div class="row">
-			<div class="col-sm-12">
-				<h2>Admin page</h2>
+	<div class="container">
+		
+		<nav class="navbar sticky-top navbar-light bg-light">
+			<h1>Hello <%=name%></h1>
+			<div class="row">
+				<a class="btn btn-info" href="/">Go home</a>			
+			</div>
+		</nav>
+	</div>
+	<div class="row mt-5">
+		<div class="col-md-6 m-auto">
+		  <div class="card card-body">
+			<h1 class="text-center mb-3">
+			  <i class="fas fa-tools"></i> Admin tools
+			</h1>
+			<div class="text-center">
 				<form action="/admin/add-product" method="GET">
 					<button type="submit" class="btn btn-primary">Add a game</button>
 				</form>
-
 				<form action="/admin/games" method="GET">
-					<button type="submit" class="btn btn-primary">Get all games</button>
+					<button type="submit" class="btn btn-primary ">Get all games</button>
 				</form>
-				<br>
 			</div>
+
+
+
+		  </div>
 		</div>
 	</div>
 	

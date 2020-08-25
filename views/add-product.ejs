@@ -6,10 +6,12 @@
 	<title><%= title %></title>
 </head>
 <body>
-	<div class="col-lg-9">
-		<div class="row">
-			<div class="col-sm-12">
-				<h2>Add Game</h2>
+	<div class="row mt-5">
+		<div class="col-md-6 m-auto">
+		  <div class="card card-body">
+			<h1 class="text-center mb-3">
+			  <i class="fas fa-folder-plus"></i> Add a game
+			</h1>
 				<form action="/admin/add-product" method="POST">
 					<div class="form-group">
 						<label for="game_id">Game ID</label>
@@ -35,7 +37,9 @@
 						<label for="description">Description</label>
 						<textarea class="form-control" id="description" name="description"></textarea>
 					</div>
-					<button type="submit" class="btn btn-primary">Add game</button>
+					<button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Add game</button>
+					<a class="btn btn-info" href="/admin"><i class="fas fa-arrow-circle-left"></i> Back</a>			
+
 				</form>
 				<br>
 			</div>
