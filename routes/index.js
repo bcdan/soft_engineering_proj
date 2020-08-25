@@ -10,7 +10,8 @@ router.get('/game', (req, res) => res.render('game', { title: 'Game' }));
 //Profile page
 router.get('/dashboard', ensureAuthenticated, (req, res) => res.render('dashboard', {
 	title: 'My Profile',
-	name: req.user.firstName
+	name: req.user.firstName,
+	role: req.user.role
 }));
 
 
