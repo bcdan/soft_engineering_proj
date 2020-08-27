@@ -8,13 +8,13 @@ const GameSchema = new mongoose.Schema({
 	title: {
 		type: String,
 		require: true
-
 	},
-	cdkey: {
-		type: String,
-		require: true
-
-	},
+	inventory: [{
+		cdkey: {
+			type: String,
+			default: ''
+		}
+	}],
 	picture: {
 		type: String,
 		require: true
@@ -28,8 +28,6 @@ const GameSchema = new mongoose.Schema({
 		type: String,
 		required: false
 	}
-
-
 });
 
 
