@@ -13,6 +13,7 @@ router.get('/fill-product/:id', ensureAuthenticatedAdmin, adminController.fillIn
 router.get('/view-inventory/:id',ensureAuthenticatedAdmin,adminController.viewInventory);
 router.post('/edit-product/:id', ensureAuthenticatedAdmin, adminController.editGame);
 router.post('/delete-product/:id', ensureAuthenticatedAdmin, adminController.deleteGame);
+router.get('/get-users',ensureAuthenticatedAdmin, adminController.getUsersList);
 
 
 module.exports = router;

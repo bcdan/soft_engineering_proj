@@ -1,4 +1,6 @@
 const Game = require('../models/Game');
+const User = require('../models/User');
+
 
 exports.getProductForm = (req, res) => {
 	res.render('add-product', { title: 'Add Product' });
@@ -138,6 +140,22 @@ exports.viewInventory = (async (req,res)=>{
 
 });
 
+exports.getUsersList = (async (req,res)=>{
+	try {
+		const users = await User.find();
+		const usersArr = [];
+		users.forEach(auser => {
+			usersArr.push(auser);
+		});
+		res.render('users-list', { title: 'Users list', users: usersArr });
+
+
+	} catch (err) {
+		res.status(500).json({ message: err.message });
+
+	}
+});
+
  function generateKeys(game,howMany){
 	let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZ';
 	let blockLen = 5;
@@ -174,5 +192,18 @@ async function getGame(req, res) {
 	}
 
 	res.game = game;
+}
+//Finds a user in DB by ID
+async function getUser(req,res){
+	let user;
+	try{
+		user = await User.findById(req.params.id);
+		if(user == null){
+			return res.status(404).json({msg: 'Cannot find user'});
+		}
+	}catch(err){
+		return res.status(500).json({msg:err.message});
+	}
+
 }
 
