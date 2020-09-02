@@ -8,13 +8,14 @@ const GameSchema = new mongoose.Schema({
 	title: {
 		type: String,
 		require: true
-
 	},
-	cdkey: {
-		type: String,
-		require: true
-
-	},
+	inventory: [{
+		cdkey: {
+			type: String,
+			default: ''
+		},
+		_id:false
+	}],
 	picture: {
 		type: String,
 		require: true
@@ -26,11 +27,11 @@ const GameSchema = new mongoose.Schema({
 	},
 	description: {
 		type: String,
-		required: true
+		required: false
 	}
-
-
 });
+
+
 const Game = mongoose.model('Game', GameSchema);
 
 module.exports = Game;

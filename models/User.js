@@ -27,17 +27,16 @@ const UserSchema = new mongoose.Schema({
 				type: String,
 				default: ''
 			},
-			CDKey: {
+			cdkey: {
 				type: String,
 				default: ''
 			},
-
-		}],
-		amount: {
-			type: Number,
-			default: 0
-		}
-
+			_id:false
+		}]
+	},
+	role: {
+		type: Boolean,
+		default: false
 	}
 
 });
