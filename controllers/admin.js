@@ -124,6 +124,20 @@ exports.fillInventory = (async (req,res)=>{
 	
 });
 
+
+exports.viewInventory = (async (req,res)=>{
+	try{
+		await getGame(req,res);
+		game = res.game;
+		if(game == null)
+			return res.status(404).json({msg: 'Couldnt find game'});
+	}catch(err){
+		return res.status(500).json({ msg: err.message });
+	}
+	res.render('inventory-admin', { title: game.title, products: game.inventory ,id:game.id});
+
+});
+
  function generateKeys(game,howMany){
 	let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZ';
 	let blockLen = 5;
@@ -145,6 +159,7 @@ exports.fillInventory = (async (req,res)=>{
 	return game;
 
 }
+
 
 // Function that finds a game in the DB
 async function getGame(req, res) {
