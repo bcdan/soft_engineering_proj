@@ -13,7 +13,6 @@ exports.postProduct = (async (req, res) => {
 	const game = new Game({
 		game_id: req.body.game_id,
 		title: req.body.title,
-		cdkey: req.body.cdkey,
 		picture: req.body.picture,
 		price: req.body.price,
 		description: req.body.description
@@ -104,6 +103,48 @@ exports.deleteGame = (async (req, res) => {
 	}
 
 });
+
+exports.fillInventory = (async (req,res)=>{
+	let game;
+	const defaultAmount = 10;
+	try{
+		await getGame(req,res);
+		game = res.game;
+		
+		if(game == null)
+			return res.status(404).json({msg: 'Couldnt find game'});
+	}catch(err){
+		return res.status(500).json({ msg: err.message });
+	}
+	game=generateKeys(game,defaultAmount);
+	await res.game.save();
+	res.redirect('/admin/games');
+
+
+	
+});
+
+ function generateKeys(game,howMany){
+	let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZ';
+	let blockLen = 5;
+	let numOfBlocks = 3; 
+	let keysToGenerate = howMany;
+	for(let k=0;k<keysToGenerate;k++){
+		let keyString= '';
+		keyString += game.game_id+"-";
+		for(let i=0;i<numOfBlocks;i++){
+			for(let j=0;j<blockLen;j++){
+				let rnum = Math.floor(Math.random()* chars.length);
+				keyString+= chars.substring(rnum,rnum+1);
+			}
+			if(i!=numOfBlocks-1)
+				keyString+='-';
+		}
+		game.inventory.push({cdkey:keyString});
+	}
+	return game;
+
+}
 
 // Function that finds a game in the DB
 async function getGame(req, res) {

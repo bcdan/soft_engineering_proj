@@ -8,10 +8,11 @@ router.get('/', ensureAuthenticatedAdmin, adminController.getAdminPage);
 router.get('/games', ensureAuthenticatedAdmin, adminController.getAllGames);
 router.post('/add-product', ensureAuthenticatedAdmin, adminController.postProduct);
 router.get('/games/:id', ensureAuthenticatedAdmin, adminController.getSingleGame);
-//router.patch('/games/:id', adminController.updateGame);
 router.get('/edit-product/:id', ensureAuthenticatedAdmin, adminController.getEditProductPage);
+//router.get('/fill-product/:id', ensureAuthenticatedAdmin, adminController.fillInventory);
+router.get('/fill-product/:id',  adminController.fillInventory);
+
 router.post('/edit-product/:id', ensureAuthenticatedAdmin, adminController.editGame);
-//router.delete('/games/:id', adminController.deleteGame);
 router.post('/delete-product/:id', ensureAuthenticatedAdmin, adminController.deleteGame);
 
 

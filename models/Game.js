@@ -13,7 +13,8 @@ const GameSchema = new mongoose.Schema({
 		cdkey: {
 			type: String,
 			default: ''
-		}
+		},
+		_id:false
 	}],
 	picture: {
 		type: String,
