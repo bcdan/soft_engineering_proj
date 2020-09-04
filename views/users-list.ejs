@@ -1,23 +1,31 @@
 <div class="container">
-    <nav class="navbar sticky-top navbar-light bg-light">
-        <a class="btn btn-info" href="/admin/"><i class="fas fa-arrow-circle-left"></i> Back</a>			
-    </nav>
-<%  if (users.length != 0) { %>
-<table class="table table-dark">
-<thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">First Name</th>
-    <th scope="col">Last Name</th>
-    <th scope="col">Email</th>
-    <th scope="col">Games in inventory</th>
-    <th scope="col">Role</th>
-    <th scope="col">Make admin</th>
-  </tr>
-</thead>
-<tbody>
-    <% for(let i = 0 ; i< users.length;i++) {%>
+  <div class="jumbotron">
+    <div class="text-center">
+        <h1><i class="fas fa-users-cog"></i> Users list</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-right">
+          <a class="btn btn-info float" href="/admin/" role="button"style="width:80px;margin-bottom: 5px;"><i class="fas fa-arrow-circle-left"></i> BACK</a>
+      </div>
+
+  <%  if (users.length != 0) { %>
+    <%- include ('./partials/messages') %>
+  <table class="table table-dark">
+
+    <thead>
       <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Games in inventory</th>
+        <th scope="col">Role</th>
+        <th scope="col">Change role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let i = 0 ; i< users.length;i++) {%>
+        <tr>
         <th scope="row"><%=i%></th>
         <td><%=users[i].firstName%></td>
         <td><%=users[i].lastName%></td>
@@ -32,22 +40,24 @@
 
         <td>
         <div class="form-check form-check-inline">
+          <form action="/admin/get-users/<%=users[i].id%>" method="POST">
             <%if(users[i].role==true){%>
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" disabled>
-                <%}else{%>
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <button type="submit" class="btn btn-danger btn-lg"><i class="fas fa-user-shield"></i></button>
+              <%}else{%>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-user"></i></button>
                 <%}%>
-            <label class="form-check-label" for="inlineCheckbox1"></label>
-          </div>
+          </form>
+        </div>
         </td>
-
-      </tr>
-    <%
+       
+        </tr>
+      <%
       }
-    %>  
-</tbody>
-</table>
-<%}else{ %>
-<h1>Users list is empty</h1>
-<%}%>
+      %>  
+    </tbody>
+  </table>
+  <%}else{ %>
+  <h1>Users list is empty</h1>
+  <%}%>
+  </div>
 </div>

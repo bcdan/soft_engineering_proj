@@ -22,7 +22,9 @@ exports.postProduct = (async (req, res) => {
 	try {
 		//const newGame = await game.save(); ------> optional
 		await game.save();
-		res.status(201).redirect('/admin');
+		req.flash('success_msg','Game added');
+		res.status(201).redirect('/admin/games');
+
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 
@@ -39,7 +41,9 @@ exports.getAllGames = (async (req, res) => {
 		});
 		//res.json(games);
 		//res.send(gameArray);
-		res.render('admin-games', { title: 'Admin game list', products: gameArray });
+		//res.render('admin-games', { title: 'Admin game list', products: gameArray });
+		res.render('games-manager', { title: 'Admin game list', products: gameArray });
+
 
 
 	} catch (err) {
@@ -85,6 +89,7 @@ exports.editGame = (async (req, res) => {
 	try {
 		await res.game.save();
 		//res.json(updatedGame);
+		req.flash('success_msg','Game updated');
 		res.redirect('/admin/games');
 	} catch (err) {
 		res.status(400).json({ message: err.message });
@@ -99,6 +104,7 @@ exports.deleteGame = (async (req, res) => {
 		await getGame(req, res);
 		await res.game.remove();
 		//res.json({ message: 'Deleted game' });
+		req.flash('error_msg','Game deleted');
 		res.redirect('/admin/games');
 	} catch (err) {
 		res.status(500).json({ msg: err.message });
@@ -120,6 +126,7 @@ exports.fillInventory = (async (req,res)=>{
 	}
 	game=generateKeys(game,defaultAmount);
 	await res.game.save();
+	req.flash('success_msg','Game inventory filled');
 	res.redirect('/admin/games');
 
 
@@ -186,6 +193,19 @@ function generateKeys(game,howMany){
 	return game;
 
 }
+
+exports.changeRole = (async (req,res)=>{
+	await getUser(req, res);
+	try {
+		res.user.role == true ? (res.user.role=false) : (res.user.role=true);
+		await res.user.save();
+		req.flash('success_msg','Role changed');
+		res.redirect('/admin/get-users');
+	} catch (err) {
+		res.status(400).json({ message: err.message });
+	}	
+
+});
 
 
 // Function that finds a game in the DB
