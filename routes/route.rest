@@ -1,5 +1,5 @@
 
-GET http://localhost:5000/admin/fill-product/5f4f8097b3f92d6825e34f9a
+GET http://localhost:5000/admin/get-users/5f2d7a270bd5a71a32ebda0b
 ###
 GET http://localhost:5000/admin/games
 
