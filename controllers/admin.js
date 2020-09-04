@@ -128,6 +128,7 @@ exports.fillInventory = (async (req,res)=>{
 
 
 exports.viewInventory = (async (req,res)=>{
+	let game;
 	try{
 		await getGame(req,res);
 		game = res.game;
@@ -139,6 +140,9 @@ exports.viewInventory = (async (req,res)=>{
 	res.render('inventory-admin', { title: game.title, products: game.inventory ,id:game.id});
 
 });
+
+
+
 
 exports.getUsersList = (async (req,res)=>{
 	try {
@@ -156,14 +160,19 @@ exports.getUsersList = (async (req,res)=>{
 	}
 });
 
- function generateKeys(game,howMany){
+
+exports.getUser = (async (req,res)=>{
+	await getUser(req, res);
+	res.send(res.user);
+});
+function generateKeys(game,howMany){
 	let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZ';
 	let blockLen = 5;
 	let numOfBlocks = 3; 
 	let keysToGenerate = howMany;
 	for(let k=0;k<keysToGenerate;k++){
 		let keyString= '';
-		keyString += game.game_id+"-";
+		keyString += game.game_id+'-';
 		for(let i=0;i<numOfBlocks;i++){
 			for(let j=0;j<blockLen;j++){
 				let rnum = Math.floor(Math.random()* chars.length);
@@ -204,6 +213,6 @@ async function getUser(req,res){
 	}catch(err){
 		return res.status(500).json({msg:err.message});
 	}
-
+	res.user=user;
 }
 

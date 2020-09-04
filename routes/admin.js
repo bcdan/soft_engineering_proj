@@ -14,6 +14,7 @@ router.get('/view-inventory/:id',ensureAuthenticatedAdmin,adminController.viewIn
 router.post('/edit-product/:id', ensureAuthenticatedAdmin, adminController.editGame);
 router.post('/delete-product/:id', ensureAuthenticatedAdmin, adminController.deleteGame);
 router.get('/get-users',ensureAuthenticatedAdmin, adminController.getUsersList);
+router.get('/get-users/:id',ensureAuthenticatedAdmin,adminController.getUser);
 
 
 module.exports = router;
