@@ -29,7 +29,7 @@ exports.getGamePayment = (async(req,res) => {
 exports.postGamePayment = (async(req,res) => {
 	try{
 		await getGame(req, res);
-		if(res.game.inventory.length == 1 || res.game.inventory.length == 0) fillInventory(req, res); 	
+		if(res.game.inventory.length == 1 || res.game.inventory.length == 0) await fillInventory(req, res); 
 	}
 	catch (err) {
 		res.status(500).json({ message: err.message });
