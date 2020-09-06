@@ -48,7 +48,7 @@
                     <div id="product-slider" class="carousel slide carousel-fade" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="https://cdn.cdkeys.com/700x700/media/catalog/product/g/r/grand_theft_auto_v_5_gta_5_pc_3.jpg" class="d-block">
+                                <img src="<%=game.picture%>" class="d-block">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#product-slider" role="button" data-slide="prev">
@@ -64,15 +64,14 @@
                 </div>
                 <div class="col-md-7">
                     <p class="new-arrival text-center">NEW</p>
-                    <h2>Grand Theft Auto : V</h2>
+                    <h2><%=game.title%></h2>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
-                    <span class="badge badge-success">USD $40.00</span>
+                    <span class="badge badge-success"><%=game.price%></span>
                     <!--<p id="price">USD $40.00</p>--->    
-                        <p id="availability"><b>Availability:</b> In stock</p>
                         <p id="genre"><b>Genre:</b> Shooter</p>
                         <p id="company"><b>Company:</b> Rockstar games</p>     
                     </p>
@@ -90,7 +89,7 @@
     <section class="product-description">
         <div class="container">
             <h4><b>Game Description</b></h4>
-            <p id="description">Meant balls it if up doubt small purse. Required his you put the outlived answered position. An pleasure exertion if believed provided to. All led out world these music while asked. Paid mind even sons does he door no. Attended overcame repeated it is perceive marianne in. In am think on style child of. Servants moreover in sensible he it ye possible.</p>
+            <p id="description"><%=game.description%></p>
             <hr>
         </div>
 
