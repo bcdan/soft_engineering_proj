@@ -1,4 +1,5 @@
 const Game = require('../models/Game');
+const { fillInventory } = require('./admin');
 
 //get games 
 exports.getShop = (async(req, res) => {
@@ -26,16 +27,15 @@ exports.getGamePayment = (async(req,res) => {
 });
 
 exports.postGamePayment = (async(req,res) => {
-	//make sure that the game inventory isn't empty. 
 	try{
 		await getGame(req, res);
+		if(res.game.inventory.length == 1 || res.game.inventory.length == 0) fillInventory(req, res); 	
 	}
 	catch (err) {
 		res.status(500).json({ message: err.message });
 	}
 	let s = res.game.inventory.pop();
 	req.user.inventory.games.push({cdkey:s.cdkey ,title: res.game.title});
-	// req.user.inventory.push({cdkey:res.game.inventory.pop()});
 	await res.game.save();
 	await req.user.save();
 	res.render('payment-confirm', { title: 'Confirm-Payment', game: res.game });
@@ -63,4 +63,4 @@ async function getGame(req, res){
 	}
 
 	res.game = game;
-};
+}

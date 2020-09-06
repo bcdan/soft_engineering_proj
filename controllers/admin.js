@@ -110,7 +110,12 @@ exports.deleteGame = (async (req, res) => {
 
 });
 
-exports.fillInventory = (async (req,res)=>{
+// exports.adminFillInventory = (async (req,res)=>{
+// 	req.flash('success_msg','Game inventory filled');
+// 	res.redirect('/admin/games');	
+// });
+
+exports.fillInventory =(async (req, res) =>{
 	let game;
 	const defaultAmount = 10;
 	try{
@@ -124,13 +129,7 @@ exports.fillInventory = (async (req,res)=>{
 	}
 	game=generateKeys(game,defaultAmount);
 	await res.game.save();
-	req.flash('success_msg','Game inventory filled');
-	res.redirect('/admin/games');
-
-
-	
 });
-
 
 exports.viewInventory = (async (req,res)=>{
 	let game;
