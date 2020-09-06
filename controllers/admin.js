@@ -61,8 +61,6 @@ exports.getSingleGame = (async (req, res,) => {
 });
 
 
-
-
 exports.getEditProductPage = (async (req, res) => {
 	await getGame(req, res);
 	res.render('edit-product', { title: 'Edit', product: res.game });
@@ -172,6 +170,7 @@ exports.getUser = (async (req,res)=>{
 	await getUser(req, res);
 	res.send(res.user);
 });
+
 function generateKeys(game,howMany){
 	let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZ';
 	let blockLen = 5;

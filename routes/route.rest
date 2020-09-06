@@ -31,3 +31,6 @@ Content-Type: application/json
     "picture":"http://hello",
     "price":60
 }
+
+###
+POST http://localhost:5000/payment/5f43ba3c6414493e77608943

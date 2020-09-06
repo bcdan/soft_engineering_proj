@@ -13,5 +13,10 @@ router.get('/game/:id', shopController.getGamePage); // single game page -> add 
 router.get('/dashboard', ensureAuthenticated, shopController.getDashboard); //add inventory view per user
 //todo : add payment route
 
+router.get('/payment/:id', ensureAuthenticated, shopController.getGamePayment); //add inventory view per user
+//todo : add payment route
+
+router.post('/payment/:id', ensureAuthenticated,shopController.postGamePayment); //add inventory view per user
+
 
 module.exports = router;

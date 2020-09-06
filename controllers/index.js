@@ -20,6 +20,27 @@ exports.getGamePage = (async(req,res) => {
 	res.render('game', { title: res.game.title, game: res.game });
 });
 
+exports.getGamePayment = (async(req,res) => {
+	await getGame(req,res);						
+	res.render('payment', { title: 'Payment', game: res.game });
+});
+
+exports.postGamePayment = (async(req,res) => {
+	//make sure that the game inventory isn't empty. 
+	try{
+		await getGame(req, res);
+	}
+	catch (err) {
+		res.status(500).json({ message: err.message });
+	}
+	let s = res.game.inventory.pop();
+	req.user.inventory.games.push({cdkey:s.cdkey ,title: res.game.title});
+	// req.user.inventory.push({cdkey:res.game.inventory.pop()});
+	await res.game.save();
+	await req.user.save();
+	res.render('payment-confirm', { title: 'Confirm-Payment', game: res.game });
+});
+
 exports.getDashboard = ((req,res)=>{
 	res.render('dashboard',{
 		title: 'My profile',
