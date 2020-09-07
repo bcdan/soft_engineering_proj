@@ -1,12 +1,17 @@
 {
   "name": "game_store",
   "version": "0.0.0",
+  "jest": {
+    "verbose": true,
+    "preset": "@shelf/jest-mongodb"
+  },
   "description": "buy video games",
   "main": "app.js",
   "directories": {
     "lib": "lib"
   },
   "dependencies": {
+    "@shelf/jest-mongodb": "^1.2.3",
     "bcryptjs": "^2.4.3",
     "bl": ">=2.2.1",
     "body-parser": "^1.19.0",
@@ -19,10 +24,9 @@
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
-    "husky": "^4.2.5",
     "jsonwebtoken": "^8.5.1",
     "latest": "^0.2.0",
-    "mongoose": "^5.10.2",
+    "mongoose": "^5.10.3",
     "n": "^6.7.0",
     "node-json-db": "^1.1.0",
     "nodemon": "^2.0.4",
@@ -32,18 +36,27 @@
   "devDependencies": {
     "@types/jest": "^26.0.13",
     "eslint": "^7.8.1",
+    "husky": "^4.3.0",
     "jest": "^26.4.2"
   },
   "scripts": {
     "dev": "nodemon app.js -e js",
-    "test": "eslint .",
+    "test:lint": "npx eslint .",
+    "test:jest": "npx jest .",
+    "test": "npm run test:lint && npm run test:jest",
     "start": "node app.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bcdan/soft_engineering_proj.git"
   },
-  "author": "Dan Levy , Leead Keness",
+  "author": "Dan Levy , Leead Keness, Sheer Amit",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bcdan/soft_engineering_proj/issues"

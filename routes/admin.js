@@ -3,7 +3,6 @@ const router = express.Router();
 const adminController = require('../controllers/admin');
 const { ensureAuthenticatedAdmin } = require('../config/auth');
 
-router.get('/add-product', ensureAuthenticatedAdmin, adminController.getProductForm);
 router.get('/', ensureAuthenticatedAdmin, adminController.getAdminPage);
 router.get('/games', ensureAuthenticatedAdmin, adminController.getAllGames);
 router.post('/add-product', ensureAuthenticatedAdmin, adminController.postProduct);
@@ -15,6 +14,7 @@ router.post('/edit-product/:id', ensureAuthenticatedAdmin, adminController.editG
 router.post('/delete-product/:id', ensureAuthenticatedAdmin, adminController.deleteGame);
 router.get('/get-users',ensureAuthenticatedAdmin, adminController.getUsersList);
 router.get('/get-users/:id',ensureAuthenticatedAdmin,adminController.getUser);
+router.post('/get-users/:id',ensureAuthenticatedAdmin,adminController.changeRole);
 
 
 module.exports = router;
