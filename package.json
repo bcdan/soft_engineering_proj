@@ -2,7 +2,8 @@
   "name": "game_store",
   "version": "0.0.0",
   "jest": {
-  "verbose": true
+    "verbose": true,
+    "preset": "@shelf/jest-mongodb"
   },
   "description": "buy video games",
   "main": "app.js",
@@ -23,7 +24,6 @@
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
-    "husky": "^4.2.5",
     "jsonwebtoken": "^8.5.1",
     "latest": "^0.2.0",
     "mongoose": "^5.10.3",
@@ -36,14 +36,21 @@
   "devDependencies": {
     "@types/jest": "^26.0.13",
     "eslint": "^7.8.1",
+    "husky": "^4.3.0",
     "jest": "^26.4.2"
   },
   "scripts": {
     "dev": "nodemon app.js -e js",
-    "test:lint": "eslint .",
-    "test:jest": "jest .",
+    "test:lint": "npx eslint .",
+    "test:jest": "npx jest .",
     "test": "npm run test:lint && npm run test:jest",
     "start": "node app.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
   },
   "repository": {
     "type": "git",
