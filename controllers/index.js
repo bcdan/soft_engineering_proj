@@ -13,7 +13,7 @@ exports.getShop = (async(req, res) => {
 	} catch (err) {
 		res.status(500).json({ message: err.message });
 	}
-	res.render('store', { title: 'GameStore', products: gameList });
+	res.render('store', { title: 'GameStore', products: gameList ,status : req.user});
 });
 
 exports.getGamePage = (async(req,res) => {

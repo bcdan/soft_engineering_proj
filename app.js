@@ -24,7 +24,6 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 //EJS
 
 app.use(expressLayouts);
-app.set('view engine', 'ejs');
 
 //Static folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -34,13 +33,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use(express.urlencoded({ extended: false }));
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
+app.set('view engine', 'ejs');
+
 
 
 //Express session
 app.use(session({
 	secret: 'secret',
 	resave: false,
-	saveUninitialized: true,
+	saveUninitialized: false,
 	cookie: { maxAge: 600000000 },
 
 	store: new MongoStore({

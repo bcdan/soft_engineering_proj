@@ -82,6 +82,7 @@ exports.registerUser = ((req, res) => {
 
 //login handle
 exports.handleLogin = ((req, res, next) => {
+	console.log(req.user);
 	passport.authenticate('local', {
 		successRedirect: '/dashboard',
 		failureRedirect: '/users/login',

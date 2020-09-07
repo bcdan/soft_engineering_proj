@@ -37,11 +37,13 @@
                 <li>
                     <a href="/dashboard"><i class="fas fa-user-cog"></i> Profile</a>
                 </li>
+                <%if(!status){%>
                 <li>
                     <a href="/users/register"><i class="fa fa-user-plus"></i>Sign up</a>
                 </li>
                 <li>
                     <a href="/users/login"><i class="fa fa-sign-in"></i>Log in</a>
+                    <%}%>
                 </li>
             </ul>
         </div>
