@@ -6,16 +6,25 @@
 }
 
 body {
-  position: relative;
+  position: absolute;
   background-color: #1a1a1a;
   width: 100%;
   height: 100%;
+  /*************================***************/
+  background:url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg) repeat #cfcfe6;
+  display: block;
+  background-attachment: fixed;
+  background-size: contain;
+  justify-content: center;
+  align-items: center; 
 }
 
 html {
   width: 100%;
   height: 100%;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
+  background:url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg) repeat #cfcfe6;
+
 }
 
 .top-nav-bar {
@@ -38,10 +47,12 @@ html {
   justify-content: center;
   width: 100%;
   height: 70px;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
   color: white;
   font-family: Courier;
   /* font-size: 35px; */
+  background:url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg) repeat #cfcfe6;
+
   border-bottom: 1px solid #1e90ff;
 }
 
@@ -56,20 +67,25 @@ html {
   display: inline-flex;
   justify-content: center;
   height: 45px;
-  background-color: #1a1a1a;
+  background:url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg) repeat #cfcfe6;
+
+  /* background-color: #1a1a1a; */
 }
 
 .menu-bar ul {
   display: inline-flex;
+  background: none;
 }
 
 .menu-bar ul li {
   list-style-type: none;
   padding: 1px 35px;
   text-align: center;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
   cursor: pointer;
   margin-top: 5px;
+  background:url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg) repeat #cfcfe6;
+
 }
 
 .menu-bar ul li a {
@@ -101,9 +117,15 @@ html {
 }
 
 /*----------------------- Carousel ----------------------*/
+.row{
+  background:url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg) repeat #cfcfe6;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+}
 .carousel {
   border: 1px solid #1e90ff;
-  margin-top: 30px;
+  margin-top: 40px;
   width:100%;
   position: relative;
   margin-bottom: 35px;
@@ -133,7 +155,7 @@ html {
 }
 
 .carousel-item {
-  height: 850px;
+  height: 500px;
   text-align: center;
   /* min-height: 700px; */
   font-family: "Montserrat", sans-serif;
@@ -154,7 +176,7 @@ html {
 }
 
 .carousel img {
-  height: 850px;
+  height: 500px;
   width: 100%;
 
 }
@@ -178,7 +200,6 @@ html {
   width: 180px;
   padding: 4px 10px;
   height: 40px;
-  /* margin-top:10px; */
   margin-bottom: 10px;
   display: flex;
   font-family: Anton;
@@ -201,8 +222,6 @@ html {
 }
 
 
-
-
 /*************CARD***************/
 .card{
     border-radius: 30px;
@@ -211,9 +230,7 @@ html {
 .card-deck{
     border-bottom:  1px solid #1e90ff;
     width: 100%;
-
 }
-
 .col-lg-3 .col-md-12 .mb-4{
     width: 400px;
     height: 400px;
@@ -330,58 +347,17 @@ html {
 }
 
 /*----------------FOOTER------------*/
-
-footer li{
-  list-style-type: none;
-  margin-left: 1vw;
-}
-
-footer li:first-child{
-  margin:0;
-}
-
-
-footer{
-  padding-top: 5vh;
-  padding-bottom: 2vh;
-}
-
-.copyright,  .impressum{
-  text-align: center;
-  color: white;
- 
-}
-
-.copyright{
-    margin-bottom: -80px;
-  text-align: center;
-  font-size: 15px;
-  padding-bottom: 20px;
-  font-family:Courier;
-  text-align: center;
-
-}
-
-
-@media (max-width: 768px) {
-  footer li{
-    margin-left: 0;
-    margin-bottom: 1vh;
-  }
-  
-  .sozial{
-    margin-bottom: 1vh;
-  }
-}
-
 .fa-cat {
     color: red;
     font-size: 15px;
   }
-/* .footer {
+
+ .footer {
   width: 100%;
-  margin-top: 50px;
-  color: black;
+  margin-top: 10px;
+  color: white;
+  background:url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg) repeat #cfcfe6;
+  margin-right: 10px;
 }
 
 .footer h1 {
@@ -405,7 +381,7 @@ footer{
 }
 .footer hr {
   margin-top: 10px;
-  background-color: #ccc;
+  background-color: #1e90ff;
 }
 .footer-image img {
   width: 120px;
@@ -417,7 +393,7 @@ footer{
 }
 
 .footer .list-unstyled list-inline text-center {
-  justify-content: space-evenly; */
+  justify-content: space-evenly;
 }
 
 /*------------------Single product----------*/
@@ -456,7 +432,7 @@ footer{
 }
 
 .single-product img {
-  float: left;
+  float: center;
   width: 400px;
   height: 500px;
 }
