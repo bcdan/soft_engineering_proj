@@ -11,13 +11,15 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Black Han Sans' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap" rel="stylesheet">
 
 </head>
 
@@ -32,15 +34,10 @@
             <ul>
                 <li><a href="/dashboard">Profile</a></li>
                 <li><a href="/users/register">Sign up</a></li>
-                <li> <a href="/users/login">Log in</a> </li>
-                <!-- <div class="myContainer">
-                    <div class="search"></div>
-                <input type="text" placeholder="Search...">
-                </div> -->
+                <li><a href="/users/login">Log in</a> </li>
             </ul>
         </div>
     </div>
-
 
     <!----------------------- Carousel ---------------------->
     <div class="row">
@@ -55,25 +52,33 @@
                 <!-- Wrapper for carousel items -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://hb.imgix.net/6ef2abc60f453eeb30b474941ac5621ca6949a57.jpg?auto=compress,format&fit=crop&h=353&w=616&s=960a97b5734dc34c3654f1d6e004d192" alt="First Slide">
+                        <img src="https://hb.imgix.net/6ef2abc60f453eeb30b474941ac5621ca6949a57.jpg?auto=compress,format&fit=crop&h=353&w=616&s=960a97b5734dc34c3654f1d6e004d192"
+                            alt="First Slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>COMING UP - SUMMER 2020</h5>
                             <p>The galaxy is yours with LEGO® Star Wars™: The Skywalker Saga!
-                                Play through all nine Star Wars saga films in a brand-new LEGO video game unlike any other. Experience fun-filled adventures, whimsical humor and the freedom to fully immerse yourself in the Star Wars universe like never before.</p>
+                                Play through all nine Star Wars saga films in a brand-new LEGO video game unlike any
+                                other. Experience fun-filled adventures, whimsical humor and the freedom to fully
+                                immerse yourself in the Star Wars universe like never before.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://cdn.mos.cms.futurecdn.net/EnHJMpHJPazzAXLBVc3aEE-1200-80.png" alt="Second Slide">
+                        <img src="https://cdn.mos.cms.futurecdn.net/EnHJMpHJPazzAXLBVc3aEE-1200-80.png"
+                            alt="Second Slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>HANDS ON: CRASH BANDICOOT 4: IT'S ABOUT TIME - SOON</h5>
-                            <p>Crash Bandicoot is back – and as challenging as ever! t's About Time is a worthy sequel to Naughty Dog's beloved trilogy, balancing the classic Crash formula with plenty of new – and welcome – modern features.</p>
+                            <p>Crash Bandicoot is back – and as challenging as ever! t's About Time is a worthy sequel
+                                to Naughty Dog's beloved trilogy, balancing the classic Crash formula with plenty of new
+                                – and welcome – modern features.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://buzz-caribbean.com/app/uploads/2020/07/super-mario-game_copy_-_h_2017.jpg" alt="Third Slide">
+                        <img src="https://buzz-caribbean.com/app/uploads/2020/07/super-mario-game_copy_-_h_2017.jpg"
+                            alt="Third Slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>THE ALL NEW SUPER MARIO - COMING THIS AUGUST</h5>
-                            <p>A rare version of the classic 1985 Super Mario Bros game has copped US$114,000 at auction, the most money ever paid for a video game.</p>
+                            <p>A rare version of the classic 1985 Super Mario Bros game has copped US$114,000 at
+                                auction, the most money ever paid for a video game.</p>
                         </div>
                     </div>
                 </div>
@@ -98,15 +103,15 @@
         <div class="row">
             <div class="card-deck">
                 <% for(let i = 0 ; i< products.length;i++) {%>
-                    <div class="col-lg-3 col-md-12 mb-4">
-                        <div class="card">
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <div class="card">
                         <div class="product-top">
                             <a href="/game/<%=products[i].id%>"> <img class="card-img-top"
                                     src="<%=products[i].picture%>"></a>
                             <div class="overlay-right">
                                 <button type="button" class="btn btn-secondary" title="Details">
                                     <a class="btn btn-primary" href="/payment/<%=products[i].id%>" role="button"> <i
-                                        class="far fa-credit-card"></i>Buy</a>
+                                            class="far fa-credit-card"></i>Buy</a>
                                 </button>
                             </div>
                         </div>
@@ -128,68 +133,32 @@
             </div>
         </div>
     </div>
-    
 
-    <!---------Footer---------->
+
+    <!-------Footer-------->
     <footer class="footer">
         <div class="container text-center">
             <div class="row">
-                <div class="col-md-4">
-                    <h1>Useful Links</h1>
-                    <p>Privacy Policy</p>
-                    <p>Terms of Use</p>
-                    <p>Return Policy</p>
-                    <p>Discount Coupons</p>
-                </div>
-
-                <div class="col-md-4">
-                    <h1>Company</h1>
-                    <p>About Us</p>
-                    <p>Contact Us</p>
-                    <p>Career</p>
-                    <p>Affiliate</p>
-                </div>
-
-                <div class="col-md-4 footer-image">
-                    <h1>Download app</h1>
-                    <img
-                        src="https://3.bp.blogspot.com/-zxXOgeQ5-0A/XD5vwB4CtTI/AAAAAAAAG4c/fFMrXH-ZFZkkVlzkgB6dvRJMUwfDgACWACK4BGAYYCw/s1600/Icons%2BApp%2BStore%2BGoogle%2Bplay.png">
-                </div>
+            <!--THE ALL NEW FOOTER-->
+                <footer class="footer-distributed">
+                    <div class="footer-right">
+				    <a href="#"><i class="fa fa-facebook"></i></a>
+				    <a href="#"><i class="fa fa-twitter"></i></a>
+				    <a href="#"><i class="fa fa-linkedin"></i></a>
+				    <a href="#"><i class="fa fa-github"></i></a>
+			</div>
+			<div class="footer-left">
+				<p class="footer-links">
+					<a class="link-1" href="/">Home</a>
+					<a href="#"> Blog</a>
+					<a href="#"> About</a>
+					<a href="#"> Contact</a>
+				</p>	
             </div>
-            <hr>
-
-            <!-- Social buttons -->
-            <ul class="list-unstyled list-inline text-center">
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-fb mx-1">
-                        <i class="fab fa-facebook-f"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-tw mx-1">
-                        <i class="fab fa-twitter"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-gplus mx-1">
-                        <i class="fab fa-google-plus-g"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-li mx-1">
-                        <i class="fab fa-linkedin-in"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-dribbble mx-1">
-                        <i class="fab fa-dribbble"> </i>
-                    </a>
-                </li>
-            </ul>
-            <hr>
-
-            <p class="copyright"><i class="fas fa-cat"></i> Made by Dan Levy, Leead Keness and Sheer Amit</p>
-        </div>
+            <div class="copyright">
+                <p><i class="fas fa-cat"></i> Made by Dan Levy, Leead Keness and Sheer Amit</p>
+            </div>	
+		</footer>
     </footer>
 </body>
 
