@@ -24,24 +24,37 @@
 </head>
 
 <body>
-    <div class="top-nav-bar">
-        <div class="search-box">
-            <a href="/"><img src="images/pngwave.png" class="logo "></a>
-            <h3>Gamestore.</h3>
-        </div>
+    <header>
+        <div class="top-nav-bar">
+            <div class="search-box">
+                <a href="/"><img src="images/pngwave.png" class="logo "></a>
+                <h3>Gamestore.</h3>
+            </div>
 
-        <div class="menu-bar">
-            <ul>
-                <li><a href="/dashboard">Profile</a></li>
-                <li><a href="/users/register">Sign up</a></li>
-                <li><a href="/users/login">Log in</a> </li>
-            </ul>
+            <div class="menu-bar">
+                <ul>
+                    <li><a href="/dashboard">Profile</a></li>
+                    <li><a href="/users/register">Sign up</a></li>
+                    <li><a href="/users/login">Log in</a> </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <!----------------------- Carousel ---------------------->
-    <div class="row">
-        <div class="container">
+    <!-----------------------LEFT PICTURE COMMERCIAL---------------------->
+    <div class="row align-self-center">
+        <div class="col-md-4" class="img-responsive">
+            <div class="left-pic">
+            <img src="https://images.daznservices.com/di/library/GOAL/29/d7/fifa-video-game-covers_1w1cenpwaexwt1ueb8b0nm1bhp.jpg?t=-1302270268" class="img-fluid" alt="Responsive image">        
+            <img src="https://www.mobygames.com/images/covers/l/352376-ghostbusters-the-video-game-windows-front-cover.jpg" class="img-fluid" alt="Responsive image">        
+
+            <!--add "BEHASUT" sentence-->
+            </div>
+        </div>
+        
+
+     <!----------------------- Carousel ---------------------->
+        <div class="col-md-4">
             <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
                 <!-- Carousel indicators -->
                 <ol class="carousel-indicators">
@@ -90,77 +103,82 @@
                     <span class="carousel-control-next-icon"></span>
                 </a>
             </div>
-        </div>
-    </div>
+        
 
 
-    <!---------------New products------------------------>
-    <div class="container" id="title-container">
-        <div class="title-box">
-            <h2>On sale</h2>
-        </div>
-        <!--below used to be class="row"-->
-        <div class="row">
-            <div class="card-deck">
-                <% for(let i = 0 ; i< products.length;i++) {%>
-                <div class="col-lg-3 col-md-12 mb-4">
-                    <div class="card">
-                        <div class="product-top">
-                            <a href="/game/<%=products[i].id%>"> <img class="card-img-top"
-                                    src="<%=products[i].picture%>"></a>
-                            <div class="overlay-right">
-                                <button type="button" class="btn btn-secondary" title="Details">
-                                    <a class="btn btn-primary" href="/payment/<%=products[i].id%>" role="button"> <i
-                                            class="far fa-credit-card"></i>Buy</a>
-                                </button>
+        <!---------------New products------------------------>
+        <div class="container" id="title-container">
+            <div class="title-box">
+                <h2>On sale</h2>
+            </div>
+            <!--below used to be class="row"-->
+            <div class="row">
+                <div class="card-deck">
+                    <% for(let i = 0 ; i< products.length;i++) {%>
+                    <div class="col-lg-3 col-md-12 mb-4">
+                        <div class="card">
+                            <div class="product-top">
+                                <a href="/game/<%=products[i].id%>"> <img class="card-img-top"
+                                        src="<%=products[i].picture%>"></a>
+                                <div class="overlay-right">
+                                    <button type="button" class="btn btn-secondary" title="Details">
+                                        <a class="btn btn-primary" href="/payment/<%=products[i].id%>" role="button"> <i
+                                                class="far fa-credit-card"></i>Buy</a>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-bottom text-center">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <h3><%=products[i].title%></h3>
+                                <h5><%=products[i].price%></h5>
                             </div>
                         </div>
-                        <div class="product-bottom text-center">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <h3><%=products[i].title%></h3>
-                            <h5><%=products[i].price%></h5>
-                        </div>
                     </div>
-                </div>
-                <%
+                    <%
                 }
                 %>
 
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="right-pic">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/FIFA_21_Standard_Edition_Cover.jpg/1200px-FIFA_21_Standard_Edition_Cover.jpg" class="img-fluid" alt="Responsive image">        
             </div>
         </div>
     </div>
-
 
     <!-------Footer-------->
     <footer class="footer">
         <div class="container text-center">
             <div class="row">
-            <!--THE ALL NEW FOOTER-->
+                <!--THE ALL NEW FOOTER-->
                 <footer class="footer-distributed">
                     <div class="footer-right">
-				    <a href="#"><i class="fa fa-facebook"></i></a>
-				    <a href="#"><i class="fa fa-twitter"></i></a>
-				    <a href="#"><i class="fa fa-linkedin"></i></a>
-				    <a href="#"><i class="fa fa-github"></i></a>
-			</div>
-			<div class="footer-left">
-				<p class="footer-links">
-					<a class="link-1" href="/">Home</a>
-					<a href="#"> Blog</a>
-					<a href="#"> About</a>
-					<a href="#"> Contact</a>
-				</p>	
-            </div>
-            <div class="copyright">
-                <p><i class="fas fa-cat"></i> Made by Dan Levy, Leead Keness and Sheer Amit</p>
-            </div>	
-		</footer>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-github"></i></a>
+                    </div>
+                    <div class="footer-left">
+                        <p class="footer-links">
+                            <a class="link-1" href="/">Home</a>
+                            <a href="#"> Blog</a>
+                            <a href="#"> About</a>
+                            <a href="#"> Contact</a>
+                        </p>
+                    </div>
+                    <div class="copyright">
+                        <p><i class="fas fa-cat"></i> Made by Dan Levy, Leead Keness and Sheer Amit</p>
+                    </div>
+                </footer>
     </footer>
 </body>
-
 
 </html>
