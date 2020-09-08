@@ -11,10 +11,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Black Han Sans' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
 
 </head>
@@ -23,71 +25,152 @@
     <div class="top-nav-bar">
         <div class="search-box">
             <a href="/"><img src="images/pngwave.png" class="logo "></a>
-            <input type="text" class="form-control">
-            <span class="input-group-text"><i class="fa fa-search"></i></span>
-            <!--cart addition-->
+            <h3>Gamestore.</h3>
         </div>
 
         <div class="menu-bar">
             <ul>
-                <li>
-                    <a href="/dashboard"><i class="fas fa-user-cog"></i> Profile</a>
-                </li>
-                <li>
-                    <a href="/users/register"><i class="fa fa-user-plus"></i>Sign up</a>
-                </li>
-                <li>
-                    <a href="/users/login"><i class="fa fa-sign-in"></i>Log in</a>
-                </li>
+                <li><a href="/dashboard">Profile</a></li>
+                <li><a href="/users/register">Sign up</a></li>
+                <li> <a href="/users/login">Log in</a> </li>
+                <!-- <div class="myContainer">
+                    <div class="search"></div>
+                <input type="text" placeholder="Search...">
+                </div> -->
             </ul>
         </div>
     </div>
 
-    <!---------------New products------------------------>
-    <section class="new-products">
+
+    <!----------------------- Carousel ---------------------->
+    <div class="row">
         <div class="container">
-            <div class="title-box">
-                <h2>On sale</h2>
-            </div>
-            <!--below used to be class="row"-->
-           <div class="row">
-            <div class="card-deck">   
-                <% for(let i = 0 ; i< products.length;i++) {%>
-                    <div class="col-md-3">
-                    <div class="card">
-                    <div class="product-top">
-                        <a href="/game/<%=products[i].id%>"> <img class="card-img-top" src="<%=products[i].picture%>"></a>
-                        <div class="overlay-right">
-                            <button type="button" class="btn btn-secondary" title="Details">
-                                <a class="btn btn-primary" href="/payment/<%=products[i].id%>"
-                                    role="button"> <i class="far fa-credit-card"></i>Buy</a> 
-                            </button>
+            <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://hb.imgix.net/6ef2abc60f453eeb30b474941ac5621ca6949a57.jpg?auto=compress,format&fit=crop&h=353&w=616&s=960a97b5734dc34c3654f1d6e004d192" alt="First Slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>COMING UP - SUMMER 2020</h5>
+                            <p>The galaxy is yours with LEGO® Star Wars™: The Skywalker Saga!
+                                Play through all nine Star Wars saga films in a brand-new LEGO video game unlike any other. Experience fun-filled adventures, whimsical humor and the freedom to fully immerse yourself in the Star Wars universe like never before.</p>
                         </div>
                     </div>
-                    <div class="product-bottom text-center">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <h3><%=products[i].title%></h3>
-                        <h5><%=products[i].price%></h5>
+                    <div class="carousel-item">
+                        <img src="https://cdn.mos.cms.futurecdn.net/EnHJMpHJPazzAXLBVc3aEE-1200-80.png" alt="Second Slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>HANDS ON: CRASH BANDICOOT 4: IT'S ABOUT TIME - SOON</h5>
+                            <p>Crash Bandicoot is back – and as challenging as ever! t's About Time is a worthy sequel to Naughty Dog's beloved trilogy, balancing the classic Crash formula with plenty of new – and welcome – modern features.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://buzz-caribbean.com/app/uploads/2020/07/super-mario-game_copy_-_h_2017.jpg" alt="Third Slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>THE ALL NEW SUPER MARIO - COMING THIS AUGUST</h5>
+                            <p>A rare version of the classic 1985 Super Mario Bros game has copped US$114,000 at auction, the most money ever paid for a video game.</p>
+                        </div>
                     </div>
                 </div>
+                <!-- Carousel controls -->
+                <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
             </div>
+        </div>
+    </div>
+
+
+    <!---------------New products------------------------>
+    <div class="container">
+        <div class="title-box">
+            <h2>On sale</h2>
+        </div>
+        <!--below used to be class="row"-->
+        <div class="row">
+            <div class="card-deck">
+                <% for(let i = 0 ; i< products.length;i++) {%>
+                    <div class="col-lg-3 col-md-12 mb-4">
+                        <div class="card">
+                        <div class="product-top">
+                            <a href="/game/<%=products[i].id%>"> <img class="card-img-top"
+                                    src="<%=products[i].picture%>"></a>
+                            <div class="overlay-right">
+                                <button type="button" class="btn btn-secondary" title="Details">
+                                    <a class="btn btn-primary" href="/payment/<%=products[i].id%>" role="button"> <i
+                                        class="far fa-credit-card"></i>Buy</a>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text-center">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <h3><%=products[i].title%></h3>
+                            <h5><%=products[i].price%></h5>
+                        </div>
+                    </div>
+                </div>
                 <%
                 }
                 %>
-            
+
             </div>
         </div>
-        </div>
-    </section>
-
-
+    </div>
+    
 
     <!---------Footer---------->
-    <section class="footer">
+    <div class="container">
+        <div class="content"></div>
+        <footer class="row">
+          <div class="sozial col-xs-12 col-sm-6 col-sm-push-6">
+            <ul class="row">
+              <li class="col-xs-6 col-sm-2">
+                <a href="#">
+                  <img class="logo" src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_facebook-128.png">
+                </a>
+              </li>
+              <li class="col-xs-6 col-sm-2">
+                <a href="#">
+                  <img class="logo" src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/twitter_online_social_media-128.png">
+                </a>
+              </li>
+              <li class="col-xs-6 col-sm-2">
+                <a href="#">
+                  <img class="logo" src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/instagram_online_social_media_photo-128.png">
+                </a>
+              </li>
+              <li class="col-xs-6 col-sm-2">
+                <a href="#">
+                  <img class="logo" src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_google_plus-128.png">
+                </a>
+              </li>
+            </ul>
+          </div><!-- Ende Sozial media -->
+          <p class="copyright"> </p>
+          <div class="copyright col-xs-12 col-sm-3 col-sm-pull-6">
+            <p><i class="fas fa-cat"></i> &copy; Made by Dan Levy, Leead Keness and Sheer Amit </p>
+          </div><!-- Ende Copyright -->
+
+          <div class="impressum col-xs-12 col-sm-3 col-sm-pull-6">
+            <p> An impressive impressum </p>
+            <p> Adresse und so </p>
+          </div><!-- Ende Impressum -->
+        </footer>
+      </div>
+
+    <!-- <section class="footer">
         <div class="container text-center">
             <div class="row">
                 <div class="col-md-4">
@@ -112,10 +195,10 @@
                         src="https://3.bp.blogspot.com/-zxXOgeQ5-0A/XD5vwB4CtTI/AAAAAAAAG4c/fFMrXH-ZFZkkVlzkgB6dvRJMUwfDgACWACK4BGAYYCw/s1600/Icons%2BApp%2BStore%2BGoogle%2Bplay.png">
                 </div>
             </div>
-            <hr>
+            <hr> -->
 
             <!-- Social buttons -->
-            <ul class="list-unstyled list-inline text-center">
+            <!-- <ul class="list-unstyled list-inline text-center">
                 <li class="list-inline-item">
                     <a class="btn-floating btn-fb mx-1">
                         <i class="fab fa-facebook-f"> </i>
@@ -146,8 +229,7 @@
 
             <p class="copyright"><i class="fas fa-cat"></i> Made by Dan Levy, Leead Keness and Sheer Amit</p>
         </div>
-    </section>
-
+    </section> -->
 </body>
 
 
