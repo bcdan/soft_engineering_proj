@@ -5,10 +5,10 @@ const passport = require('passport');
 const User = require('../models/User');
 
 exports.getLoginPage = ((req,res)=>{
-	res.render('login',{title:'Login'});
+	res.render('login',{title:'Login', status: req.user});
 });
 exports.getRegisterPage = ((req,res)=>{
-	res.render('register',{title:'Register'});
+	res.render('register',{title:'Register', status: req.user});
 });
 
 exports.registerUser = ((req, res) => {
@@ -35,7 +35,8 @@ exports.registerUser = ((req, res) => {
 			lastName,
 			email,
 			password,
-			password2
+			password2,
+			status: req.user
 		});
 	} else {
 		User.findOne({ email: email }).then(user => {
@@ -48,7 +49,8 @@ exports.registerUser = ((req, res) => {
 					lastName,
 					email,
 					password,
-					password2
+					password2,
+					status: req.user
 				});
 			} else {
 				const newUser = new User({

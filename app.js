@@ -76,7 +76,7 @@ app.use('/admin', require('./routes/admin'));
 
 //404 page
 app.use((req, res) => {
-	res.status(404).render('404', { title: 'Page Not found!' });
+	res.status(404).render('404', { title: 'Page Not found!',status: req.user });
 });
 
 

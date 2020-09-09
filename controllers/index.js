@@ -13,17 +13,17 @@ exports.getShop = (async(req, res) => {
 	} catch (err) {
 		res.status(500).json({ message: err.message });
 	}
-	res.render('store', { title: 'GameStore', products: gameList });
+	res.render('store', { title: 'GameStore', products: gameList, status: req.user });
 });
 
 exports.getGamePage = (async(req,res) => {
 	await getGame(req,res);						
-	res.render('game', { title: res.game.title, game: res.game });
+	res.render('game', { title: res.game.title, game: res.game, status: req.user  });
 });
 
 exports.getGamePayment = (async(req,res) => {
 	await getGame(req,res);						
-	res.render('payment', { title: 'Payment', game: res.game });
+	res.render('payment', { title: 'Payment', game: res.game , status: req.user });
 });
 
 exports.postGamePayment = (async(req,res) => {
@@ -32,13 +32,13 @@ exports.postGamePayment = (async(req,res) => {
 		if(res.game.inventory.length == 1 || res.game.inventory.length == 0) await fillInventory(req, res); 
 	}
 	catch (err) {
-		res.status(500).json({ message: err.message });
+		res.status(500).json({ message: err.message , status: req.user });
 	}
 	let s = res.game.inventory.pop();
 	req.user.inventory.games.push({cdkey:s.cdkey ,title: res.game.title});
 	await res.game.save();
 	await req.user.save();
-	res.render('payment-confirm', { title: 'Confirm-Payment', game: res.game });
+	res.render('payment-confirm', { title: 'Confirm-Payment', game: res.game, status: req.user  });
 });
 
 exports.getDashboard = ((req,res)=>{
@@ -46,7 +46,8 @@ exports.getDashboard = ((req,res)=>{
 		title: 'My profile',
 		name: req.user.firstName,
 		role: req.user.role,
-		inventory:req.user.inventory
+		inventory:req.user.inventory,
+		status: req.user 
 	});
 });
 
@@ -59,7 +60,7 @@ async function getGame(req, res){
 			return res.status(404).json({ msg: 'Cannot find game' });
 		}
 	} catch (err) {
-		return res.status(500).json({ msg: err.message });
+		return res.status(500).json({ msg: err.message , status: req.user });
 	}
 
 	res.game = game;
