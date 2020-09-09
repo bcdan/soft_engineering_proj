@@ -15,13 +15,13 @@ exports.getShop = (async(req, res) => {
 	res.render('store', { title: 'GameStore', products: gameList, status: req.user });
 });
 
-exports.getGamePage = (async(req,res) => {
+exports.getGamePage = (req,res) => {
 	res.render('game', { title: res.game.title, game: res.game, status: req.user  });
-});
+};
 
-exports.getGamePayment = (async(req,res) => {
+exports.getGamePayment = (req,res) => {
 	res.render('payment', { title: 'Payment', game: res.game , status: req.user });
-});
+};
 
 exports.postGamePayment = (async(req,res) => {
 	let game;

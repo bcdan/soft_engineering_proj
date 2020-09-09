@@ -51,7 +51,7 @@ exports.getSingleGame = (req, res) => {
 	res.send(res.game);
 };
 
-exports.getEditProductPage = (async (req, res) => {
+exports.getEditProductPage = (req, res) => {
 	let game;
 	try{
 		game=res.game;
@@ -59,8 +59,7 @@ exports.getEditProductPage = (async (req, res) => {
 	}catch(err){
 		res.status(400).json({ message: err.message });
 	}
-	res.render('edit-product', { title: 'Edit', product: res.game, status: req.user });
-});
+};
 
 //Update one game
 exports.editGame = (async (req, res) => {
