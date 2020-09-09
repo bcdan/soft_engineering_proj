@@ -12,16 +12,16 @@ exports.getShop = (async(req, res) => {
 	} catch (err) {
 		res.status(500).json({ message: err.message });
 	}
-	res.render('store', { title: 'GameStore', products: gameList ,status : req.user});
+	res.render('store', { title: 'GameStore', products: gameList, status: req.user });
 });
 
-exports.getGamePage = (req,res) => {
-	res.render('game', { title: res.game.title, game: res.game });
-};
+exports.getGamePage = (async(req,res) => {
+	res.render('game', { title: res.game.title, game: res.game, status: req.user  });
+});
 
-exports.getGamePayment = (req,res) => {
-	res.render('payment', { title: 'Payment', game: res.game });
-};
+exports.getGamePayment = (async(req,res) => {
+	res.render('payment', { title: 'Payment', game: res.game , status: req.user });
+});
 
 exports.postGamePayment = (async(req,res) => {
 	let game;
@@ -29,8 +29,8 @@ exports.postGamePayment = (async(req,res) => {
 	req.user.inventory.games.push({cdkey:s.cdkey ,title: res.game.title});
 	await res.game.save();
 	await req.user.save();
-	game=res.game;
-	res.render('payment-confirm', { title: 'Confirm-Payment', game: game });
+	game = res.game;
+	res.render('payment-confirm', { title: 'Confirm-Payment', game: game, status: req.user  });
 });
 
 exports.getDashboard = ((req,res)=>{
@@ -38,6 +38,7 @@ exports.getDashboard = ((req,res)=>{
 		title: 'My profile',
 		name: req.user.firstName,
 		role: req.user.role,
-		inventory:req.user.inventory
+		inventory:req.user.inventory,
+		status: req.user 
 	});
 });
