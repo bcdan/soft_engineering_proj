@@ -36,7 +36,7 @@ module.exports = {
 				return res.status(404).json({ msg: 'Cannot find game' });
 			}
 		} catch (err) {
-			return res.status(500).json({ msg: err.message });
+			return res.status(500).redirect('/');
 		}
     
 		res.game = game;
