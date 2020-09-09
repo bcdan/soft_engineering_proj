@@ -3,11 +3,11 @@ const User = require('../models/User');
 
 
 exports.getProductForm = (req, res) => {
-	res.render('add-product', { title: 'Add Product' });
+	res.render('add-product', { title: 'Add Product' , status: req.user });
 };
 
 exports.getAdminPage = (req, res) => {
-	res.render('admin', { title: 'Admin Page', name: req.user.firstName });
+	res.render('admin', { title: 'Admin Page', name: req.user.firstName, status: req.user  });
 };
 
 //post game
@@ -20,7 +20,6 @@ exports.postProduct = (async (req, res) => {
 		description: req.body.description
 	});
 	try {
-		//const newGame = await game.save(); ------> optional
 		await game.save();
 		req.flash('success_msg','Game added');
 		res.status(201).redirect('/admin/games');
@@ -39,14 +38,12 @@ exports.getAllGames = (async (req, res) => {
 		games.forEach(agame => {
 			gameArray.push(agame);
 		});
-		res.render('games-manager', { title: 'Admin game list', products: gameArray });
+		
+		res.render('games-manager', { title: 'Admin game list', products: gameArray, status: req.user });
 
 	} catch (err) {
 		res.status(500).json({ message: err.message });
-
 	}
-
-
 });
 
 //get one game
@@ -54,19 +51,18 @@ exports.getSingleGame = (req, res) => {
 	res.send(res.game);
 };
 
-
 exports.getEditProductPage = (req, res) => {
 	let game;
 	try{
 		game=res.game;
-		res.render('edit-product', { title: 'Edit', product: game });
+		res.render('edit-product', { title: 'Edit', product: game ,status: req.user});
 	}catch(err){
 		res.status(400).json({ message: err.message });
 	}
 };
+
 //Update one game
 exports.editGame = (async (req, res) => {
-
 	if (req.body.title != null) {
 		res.game.title = req.body.title;
 	}
@@ -120,7 +116,7 @@ exports.viewInventory = (req,res)=>{
 	}catch(err){
 		return res.status(500).json({ msg: err.message });
 	}
-	res.render('inventory-admin', { title: game.title, products: game.inventory ,id:game.id});
+	res.render('inventory-admin', { title: game.title, products: game.inventory ,id:game.id, status: req.user});
 
 };
 
@@ -134,7 +130,7 @@ exports.getUsersList = (async (req,res)=>{
 		users.forEach(auser => {
 			usersArr.push(auser);
 		});
-		res.render('users-list', { title: 'Users list', users: usersArr });
+		res.render('users-list', { title: 'Users list', users: usersArr , status: req.user});
 
 
 	} catch (err) {
