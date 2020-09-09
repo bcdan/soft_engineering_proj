@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><%= title %></title>
+	<title><%=title%></title>
 </head>
 <body>
 	<%- include ('./partials/messages') %>
@@ -12,6 +12,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<h2>Edit Game</h2>
+				<% if(product!=null){ %>
 					<form action="/admin/edit-product/<%=product.id%>" method="POST">
 						<div class="form-group">
 							<label for="title">Title</label>
@@ -34,6 +35,9 @@
 						<a class="btn btn-secondary" href="/admin/view-inventory/<%=product.id%>" role="button">View inventory</a>
 						<a class="btn btn-primary" href="/admin/games" role="button">Go back</a>
 					</form>
+					<%
+				}
+				%>
 				<br>
 			</div>
 		</div>
