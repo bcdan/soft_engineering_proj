@@ -30,7 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //Body parser
-//app.use(express.urlencoded({ extended: false }));
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 app.set('view engine', 'ejs');

@@ -95,7 +95,7 @@ exports.handleLogin = ((req,res,next)=>{
 				errors.push({msg:info.message}); 
 				return res.render('login',{title:'Login',errors});
 			}
-			req.session.save(function(){
+			req.session.save(function(){ // Known error using express session -> this solves the issue
 				return res.redirect('/dashboard');
 			});
 		});
