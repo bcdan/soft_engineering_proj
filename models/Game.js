@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const GameSchema = new mongoose.Schema({
 	game_id: {
 		type: Number,
-		require: true
+		required: true
 	},
 	title: {
 		type: String,
-		require: true
+		required: true
 	},
 	inventory: [{
 		cdkey: {
@@ -18,7 +18,7 @@ const GameSchema = new mongoose.Schema({
 	}],
 	picture: {
 		type: String,
-		require: true
+		required: true
 
 	},
 	price: {
