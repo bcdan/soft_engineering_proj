@@ -29,6 +29,7 @@ app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
 //Body parser
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());

@@ -1,24 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title><%= title %></title>
-</head>
-
-<body>
-    <div class="container">
-        <ol>
-            <li><%=game.title%></li> 
-            <li><%=game.price%></li> 
-            <li> <img src="<%=game.picture%>"></img></li> 
-        </ol>
-    </div>
+ <div class="container">
+    <ol>
+        <li><%=game.title%></li> 
+        <li><%=game.price%></li> 
+        <li> <img src="<%=game.picture%>"></img></li> 
+    </ol>
     <form action="/payment/<%=game.id%>" method="POST">
         <button type="submit" class="btn btn-primary">Confirm</button>
         <a class="btn btn-primary" href="/" role="button"> <i class="far fa-credit-card"></i>Cancel</a> 
-    </form>
+    </form> 
+    
+</div>
 
-</body>
-</html>

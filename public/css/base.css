@@ -628,3 +628,27 @@ footer {
 .not_found .fa-dizzy {
   color: red;
 }
+
+#login_body{
+  color:white;
+  background-color:transparent;
+}
+#register_body{
+  color:white;
+  background-color:transparent;
+}
+#admin_body{
+  color:white;
+  background-color:transparent;
+}
+#admin_body .card-body{
+  color:white;
+  background-color:transparent;
+}
+#dashboard{
+  color:white;
+}
+#edit_body{
+  color:white;
+  background-color:transparent;
+}
