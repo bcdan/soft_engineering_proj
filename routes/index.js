@@ -19,5 +19,9 @@ router.get('/payment/:id', ensureAuthenticated, getGame, shopController.getGameP
 //post-Payment page
 router.post('/payment/:id', ensureAuthenticated,getGame, fillInventory , shopController.postGamePayment); 
 
+//get-add to cart with ID - > adds an item to cart
+router.get('/add-to-cart/:id',ensureAuthenticated,getGame,shopController.addToCart);
+
+router.get('/cart',ensureAuthenticated,shopController.getCart);
 
 module.exports = router;

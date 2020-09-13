@@ -81,10 +81,15 @@
                                 <a href="/game/<%=products[i].id%>"> <img class="card-img-top"
                                         src="<%=products[i].picture%>"></a>
                                 <div class="overlay-right">
-                                    <button type="button" class="btn btn-secondary" title="Details">
+                                    <button type="button" class="btn btn-secondary" title="Buy now">
                                         <a class="btn btn-primary" href="/payment/<%=products[i].id%>" role="button"> <i
                                                 class="far fa-credit-card"></i>Buy</a>
                                     </button>
+                                    <button type="button" class="btn btn-secondary" title="Add to cart">
+                                        <a class="btn btn-primary" href="/add-to-cart/<%=products[i].id%>" role="button"> <i
+                                                class="fas fa-cart-plus"></i>Add</a>
+                                    </button>
+
                                 </div>
                             </div>
                             <div class="product-bottom text-center">
