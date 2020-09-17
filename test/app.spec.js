@@ -1,29 +1,25 @@
 const app = require('../app');
-const supertest = require('supertest');
-
+const request = require('supertest');
+const mongoose = require('mongoose');
 
 describe('GET /admin', () => {
-	it('request admin page without being logged in', async (done) => {
-		const request = supertest(app);
-		//because of the asynchronous nature, we need
-		//to use the done function to ends the test
-
-		const response = await request.get('/admin');
+	it('request admin page without being logged in', async () => {
+		const response = await request(app).get('/admin');
 		expect(response.status).toBe(302); // if not logged in redirect
 		expect(response.headers['location']).toBe('/users/login');
-
 		// usage of the done function
-		done();
 	});
 });
 
 describe('GET /users/register', () => {
 	// Tal's opinion: it should not redirect and rather return the page with a status 400
-	it('Should redirect to login', async (done) => {
-		const request = supertest(app);
-		const response = await request.post('/users/login').send({ username: 'Tal', password: '123456' });
+	it('Should redirect to login', async () => {
+		const response = await request(app).post('/users/login').send({ username: 'Tal', password: '123456' });
 		expect(response.status).toBe(302);
 		expect(response.headers['content-type']).toContain('text/plain');
-		done();
 	});
+});
+
+afterAll(async () => {
+	await mongoose.disconnect();
 });
