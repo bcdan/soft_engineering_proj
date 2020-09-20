@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 describe('GET /admin', () => {
 	it('request admin page without being logged in', async () => {
+		jest.setTimeout(30000);
 		const response = await request(app).get('/admin');
 		expect(response.status).toBe(302); // if not logged in redirect
 		expect(response.headers['location']).toBe('/users/login');
