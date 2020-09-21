@@ -24,23 +24,24 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 //EJS
 
 app.use(expressLayouts);
-app.set('view engine', 'ejs');
 
 //Static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
 //Body parser
-//app.use(express.urlencoded({ extended: false }));
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
+app.set('view engine', 'ejs');
+
 
 
 //Express session
 app.use(session({
 	secret: 'secret',
 	resave: false,
-	saveUninitialized: true,
+	saveUninitialized: false,
 	cookie: { maxAge: 600000000 },
 
 	store: new MongoStore({
@@ -51,7 +52,6 @@ app.use(session({
 }));
 
 
-//	cookie: { maxAge: 1 * 60 * 60 * 24 * 60 * 60 },
 
 //Passport middleware
 app.use(passport.initialize());
@@ -76,7 +76,7 @@ app.use('/admin', require('./routes/admin'));
 
 //404 page
 app.use((req, res) => {
-	res.status(404).render('404', { title: 'Page Not found!' });
+	res.status(404).render('404', { title: 'Page Not found!',status: req.user });
 });
 
 module.exports = app;
