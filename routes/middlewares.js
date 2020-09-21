@@ -1,5 +1,7 @@
 const Game = require('../models/Game');
 const User = require('../models/User');
+const Order = require('../models/Order');
+const Cart = require('../models/Cart');
 
 //generates random cdkeys
 function generateKeys (game,howMany){
@@ -76,4 +78,24 @@ module.exports = {
 		}
 		next();
 	},
+	getGamesFromCart:async function (req, res, next) {
+		let dbGames = [];
+		try {
+			let currentCart = new Cart(req.session.cart);
+			let products = currentCart.generateArray();
+			console.log(products);
+			for(let i =0 ; i<products.length;i++){
+				console.log(products[i].item._id);
+				let singleGame = await Game.findById(products[i].item._id);
+				if(singleGame == null){
+					return res.status(404).json({ msg: 'Cannot find game in DB' });
+				}
+				dbGames.push(singleGame);
+			}
+		} catch (err) {
+			return res.status(500).redirect('/');
+		}
+		res.dbGames=dbGames;
+		next();
+	}
 };

@@ -74,6 +74,8 @@
             <!--below used to be class="row"-->
             <div class="row">
                 <div class="card-deck">
+                    <%- include ('./partials/messages') %>
+
                     <% for(let i = 0 ; i< products.length;i++) {%>
                     <div class="col-lg-3 col-md-12 mb-4">
                         <div class="card">
@@ -98,8 +100,8 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
-                                <h3><%=products[i].title%></h3>
-                                <h5><%=products[i].price%>$</h5>
+                                <h3><bold><%=products[i].title%></bold></h3>
+                              <h5><strong> $ <%=products[i].price%></strong> </h5> 
                             </div>
                         </div>
                     </div>

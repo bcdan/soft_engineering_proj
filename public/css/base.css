@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -8,11 +9,9 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  /*-------------BACKGROUND-------------*/
-  background: url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg)
+  background: url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg) 
     repeat #cfcfe6;
   display: block;
-  /* background-attachment: fixed; */
   background-size: contain;
   justify-content: center;
   align-items: center;
@@ -23,16 +22,16 @@ html {
   height: 100%;
   background: url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg) repeat #cfcfe6;
   background-size: contain;
-}
+} 
 
 /*-------LATESET ADDITION--------*/
-.top-nav-bar {
+ .top-nav-bar {
   position: sticky;
   height: 150px;
   top: 0;
   width: 100%;
   z-index: 2;
-  border-bottom: 1px dotted #1e90ff;
+  border-bottom: 8px dotted #1e90ff;
   display: flex;
   justify-content: space-between;
   margin: 1em;
@@ -136,7 +135,7 @@ html {
     width: 100%;
   }
 }
-
+ 
 
 /*-----------------------ASIDE PIC----------------------*/
 header,
@@ -211,7 +210,7 @@ footer {
   font-family: Comfortaa;
   margin-right: 140px;
 }
-
+ 
 
 /*-----------------------CAROUSEL----------------------*/
 .row {
@@ -296,10 +295,10 @@ footer {
 
 .carousel-indicators .active {
   background-color: red;
-}
+} 
 
 /*------------------------ON SALE-----------------------------*/
-.title-box {
+ .title-box {
   background: #1e90ff;
   color: #fff;
   width: 180px;
@@ -324,7 +323,7 @@ footer {
   position: absolute;
   display: flex;
   margin-left: 170px;
-}
+} 
 
 /*------------------------------CARD----------------------------*/
 .card {
@@ -335,7 +334,7 @@ footer {
   /* border-bottom: 1px solid #1e90ff; */
   width: 100%;
 }
-.col-lg-3 .col-md-12 .mb-4 {
+ .col-lg-3 .col-md-12 .mb-4 {
   width: 400px;
   height: 400px;
   margin: 100px auto;
@@ -365,7 +364,7 @@ footer {
 
 .card:hover img {
   transform: scale(1.1);
-}
+} 
 
 /*---------------------------PRODUCT TOP----------------------*/
 .card img {
@@ -446,7 +445,7 @@ footer {
   margin-bottom: 0;
 }
 .footer{
-  border-top: 1px dotted #1e90ff;
+  border-top: 8px dotted #1e90ff;
 }
 
 .container-text-center{
