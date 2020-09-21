@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const shopController = require('../controllers/index');
 const { ensureAuthenticated } = require('../config/auth');
-const {getGame, fillInventory, getGamesFromCart} = require('./middlewares');
-const Order = require('../models/Order');
+//const {getGame, fillInventory, getGamesFromCart} = require('./middlewares');
+const {getGame, getGamesFromCart} = require('./middlewares');
+
+//const Order = require('../models/Order');
 
 //Home page
 router.get('/', shopController.getShop); // Home page / general store

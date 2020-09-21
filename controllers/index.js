@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 const Game = require('../models/Game');
 const Cart = require('../models/Cart');
+const Order = require('../models/Order');
 
 //get games 
 exports.getShop = (async(req, res) => {
@@ -37,9 +39,19 @@ exports.postCheckoutPage = (async(req,res) => {
 		await res.dbGames[i].save();
 		await req.user.save();	
 	}
+	let order = new Order({
+		user : req.user,
+		cart : req.session.cart,
+		address : 'random address for now',
+		name : 'random name',
+		paymentId : 999
+	});
+	order.save((err, result) => {
+		req.session.cart = null;
+		res.render('shopping/thankyou', { title: 'Thank you!' });
+	});
 
 	// res.render('shopping/payment-confirm', { title: 'Confirm-Payment', games: res.dbGames });
-	res.render('404',{title:'404'});
 });
 
 exports.getDashboard = ((req,res)=>{
