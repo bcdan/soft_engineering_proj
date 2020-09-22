@@ -7,11 +7,9 @@
       <div class="col-md-12 text-right">
           <a class="btn btn-info float" href="/admin/" role="button"style="width:80px;margin-bottom: 5px;"><i class="fas fa-arrow-circle-left"></i> BACK</a>
       </div>
-
   <%  if (users.length != 0) { %>
     <%- include ('./partials/messages') %>
   <table class="table table-dark">
-
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -36,8 +34,6 @@
         <%}else{%>
         <td>peasant</td>
         <%}%>
-
-
         <td>
         <div class="form-check form-check-inline">
           <form action="/admin/get-users/<%=users[i].id%>" method="POST">
@@ -56,6 +52,7 @@
       %>  
     </tbody>
   </table>
+    </div>
   <%}else{ %>
   <h1>Users list is empty</h1>
   <%}%>

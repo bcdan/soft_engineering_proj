@@ -6,7 +6,6 @@ const { ensureNotAuthenticated } = require('../config/auth');
 // Login Page
 router.get('/login', ensureNotAuthenticated,UsersController.getLoginPage );
 
-
 // Register Page
 router.get('/register',ensureNotAuthenticated, UsersController.getRegisterPage );
 

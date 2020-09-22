@@ -56,8 +56,6 @@ exports.postCheckoutPage = (async(req,res) => {
 		req.session.cart = null;
 		res.render('shopping/thankyou', { title: 'Thank you!' });
 	});
-
-	// res.render('shopping/payment-confirm', { title: 'Confirm-Payment', games: res.dbGames });
 });
 
 exports.getDashboard = ((req,res)=>{
@@ -72,7 +70,6 @@ exports.addToCart = ((req,res)=>{
 	let cart = new Cart(req.session.cart ? req.session.cart : {});
 	cart.add(res.game,res.game.id);
 	req.session.cart = cart;
-	//req.flash('success_msg', 'Added to cart!');
 	res.redirect('/');
 });
 
