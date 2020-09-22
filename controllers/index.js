@@ -3,7 +3,7 @@ const Game = require('../models/Game');
 const Cart = require('../models/Cart');
 const Order = require('../models/Order');
 
-//get games 
+//Render shop
 exports.getShop = (async(req, res) => {
 	const gameList = [];
 	try {
@@ -15,28 +15,34 @@ exports.getShop = (async(req, res) => {
 	} catch (err) {
 		res.status(500).json({ message: err.message });
 	}
-	//res.render('storetest', {layout:'shopping-cart', title: 'GameStore', products: gameList });
 	res.render('store', {title: 'GameStore', products: gameList });
 });
 
+//GET single game page
 exports.getGamePage = (req,res) => {
 	res.render('game', { title: res.game.title, game: res.game });
 };
 
+
+//GET Paymentpage - checkout
 exports.getCheckoutPage = (req,res) => {
 	if(!req.session.cart){
 		return res.redirect('/cart');
 	}
 	let cart = new Cart(req.session.cart);
-	res.render('shopping/checkout', { layout:'shopping/checkout-layout',title: 'Checkout', total:cart.totalPrice });
+	res.render('shopping/checkout', { layout:'shopping/shopping-layouts/checkout-layout',title: 'Checkout', total:cart.totalPrice });
 };
 
+
+// POST Payment page - checkout
 exports.postCheckoutPage = (async(req,res) => {
-	let removed ;
+	let gameInCart ;
 	for(let i =0 ;i<res.dbGames.length;i++){
-		removed= res.dbGames[i];
-		req.user.inventory.games.push({cdkey:removed.inventory.pop().cdkey ,title: removed.title});
-		await res.dbGames[i].save();
+		gameInCart= res.dbGames[i];
+		while(gameInCart.qty--){
+			req.user.inventory.games.push({cdkey:gameInCart.game.inventory.pop().cdkey ,title: gameInCart.game.title});
+		}
+		await res.dbGames[i].game.save();
 		await req.user.save();	
 	}
 	let order = new Order({
@@ -61,7 +67,7 @@ exports.getDashboard = ((req,res)=>{
 		inventory:req.user.inventory
 	});
 });
-
+//
 exports.addToCart = ((req,res)=>{
 	let cart = new Cart(req.session.cart ? req.session.cart : {});
 	cart.add(res.game,res.game.id);
@@ -72,9 +78,9 @@ exports.addToCart = ((req,res)=>{
 
 exports.getCart = ((req,res)=>{
 	if(!req.session.cart){
-		return res.render('shopping/cart',{layout:'shopping/cart-layout',title:'My Cart',products:null});
+		return res.render('shopping/cart',{layout:'shopping/shopping-layouts/cart-layout',title:'My Cart',products:null});
 	}
 	let cart = new Cart(req.session.cart);
 	let arr = cart.generateArray();
-	res.render('shopping/cart',{layout:'shopping/cart-layout',title:'My Cart',products:arr,totalPrice:cart.totalPrice});
+	res.render('shopping/cart',{layout:'shopping/shopping-layouts/cart-layout',title:'My Cart',products:arr,totalPrice:cart.totalPrice});
 });

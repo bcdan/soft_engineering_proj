@@ -22,33 +22,4 @@ module.exports = function Cart(oldCart){
 	};
 
 };
-// const mongoose = require('mongoose');
 
-// const CartSchema = new mongoose.Schema({
-
-// 	inventory: {
-// 		games: [{
-// 			title: {
-// 				type: String,
-// 				default: ''
-// 			},
-// 			cdkey: {
-// 				type: String,
-// 				default: ''
-// 			},
-// 			_id:false,
-// 			picture:{
-// 				type:String
-// 			}
-// 		}]
-// 	},
-// 	total: {
-// 		type: Number,
-// 		required: true
-// 	}
-// });
-
-
-// const Cart = mongoose.model('Cart', CartSchema);
-
-// module.exports = Cart;

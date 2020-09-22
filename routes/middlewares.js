@@ -78,18 +78,18 @@ module.exports = {
 		}
 		next();
 	},
+
 	getGamesFromCart:async function (req, res, next) {
 		let dbGames = [];
 		try {
-			let currentCart = new Cart(req.session.cart);
-			let products = currentCart.generateArray();
-			console.log(products);
+			let products = new Cart(req.session.cart).generateArray();
 			for(let i =0 ; i<products.length;i++){
 				let singleGame = await Game.findById(products[i].item._id);
 				if(singleGame == null){
 					return res.status(404).json({ msg: 'Cannot find game in DB' });
 				}
-				dbGames.push(singleGame);
+				dbGames.push({game:singleGame,qty:products[i].qty});
+				
 			}
 		} catch (err) {
 			return res.status(500).redirect('/');

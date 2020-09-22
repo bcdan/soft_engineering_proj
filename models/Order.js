@@ -21,10 +21,7 @@ const OrderSchema = new mongoose.Schema({
 		type:String,
 		required:true
 	},
-	game:[{
-		type:String,
-		required:true
-	}]
+	
 	
 });
 

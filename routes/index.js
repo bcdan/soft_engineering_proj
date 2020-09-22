@@ -16,17 +16,16 @@ router.get('/game/:id', getGame,shopController.getGamePage); // single game page
 //Profile page
 router.get('/dashboard', ensureAuthenticated, shopController.getDashboard); 
 
-//Payment page
+//Payment/checkout page
 router.get('/checkout/', ensureAuthenticated,  shopController.getCheckoutPage); 
 
-//post-Payment page
-//router.post('/payment/:id', ensureAuthenticated,getGame, fillInventory , shopController.postGamePayment); 
-
+//Post payment / checkout page
 router.post('/checkout/', ensureAuthenticated, getGamesFromCart,shopController.postCheckoutPage); 
 
-//get-add to cart with ID - > adds an item to cart
+//GET add to cart with ID - > adds an item to cart
 router.get('/add-to-cart/:id',ensureAuthenticated,getGame,shopController.addToCart);
 
+//GET cart review page
 router.get('/cart',ensureAuthenticated,shopController.getCart);
 
 module.exports = router;
