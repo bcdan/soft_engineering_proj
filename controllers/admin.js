@@ -28,7 +28,7 @@ exports.postProduct = (async (req, res) => {
 			await game.save();
 			req.flash('success_msg','Game added');
 		}
-		res.redirect('/admin/games');
+		res.status(201).redirect('/admin/games');
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}
