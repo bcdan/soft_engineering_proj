@@ -1,6 +1,5 @@
 const Game = require('../models/Game');
 const User = require('../models/User');
-//const Order = require('../models/Order');
 const Cart = require('../models/Cart');
 
 //generates random cdkeys

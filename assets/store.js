@@ -24,6 +24,7 @@ function ready() {
 			let gameId = $(this).attr('href');
 			alert('Added to cart!');
 			$.ajax({
+				async:true,
 				type:'GET',
 				url:gameId,
 			});
