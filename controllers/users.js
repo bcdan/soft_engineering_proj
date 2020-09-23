@@ -5,10 +5,10 @@ const passport = require('passport');
 const User = require('../models/User');
 
 exports.getLoginPage = ((req,res)=>{
-	res.render('login',{title:'Login', status: req.user});
+	res.render('login',{title:'Login'});
 });
 exports.getRegisterPage = ((req,res)=>{
-	res.render('register',{title:'Register', status: req.user});
+	res.render('register',{title:'Register'});
 });
 
 exports.registerUser = ((req, res) => {
@@ -35,8 +35,7 @@ exports.registerUser = ((req, res) => {
 			lastName,
 			email,
 			password,
-			password2,
-			status: req.user
+			password2
 		});
 	} else {
 		User.findOne({ email: email }).then(user => {
@@ -49,8 +48,7 @@ exports.registerUser = ((req, res) => {
 					lastName,
 					email,
 					password,
-					password2,
-					status: req.user
+					password2
 				});
 			} else {
 				const newUser = new User({
@@ -86,19 +84,19 @@ exports.handleLogin = ((req,res,next)=>{
 		let errors = [];
 		if (err) {
 			errors.push({msg:info.message}); 
-			return res.render('login',{title:'Login',errors});
+			return res.status(401).render('login',{title:'Login',errors});
 		}
 		if (!user) { 
 			errors.push({msg:info.message}); 
-			return res.render('login',{title:'Login',errors});
+			return res.status(401).render('login',{title:'Login',errors});
 		}
 		req.logIn(user, function(err) {
 			if (err) {
 				errors.push({msg:info.message}); 
-				return res.render('login',{title:'Login',errors});
+				return res.status(401).render('login',{title:'Login',errors});
 			}
 			req.session.save(function(){ // Known error using express session -> this solves the issue
-				return res.redirect('/dashboard');
+				return res.status(200).redirect('/dashboard');
 			});
 		});
 	})(req, res, next);

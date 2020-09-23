@@ -1,6 +1,6 @@
+
 * {
-  margin: 0;
-  padding: 0;
+
   box-sizing: border-box;
 }
 
@@ -8,86 +8,68 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  /*-------------BACKGROUND-------------*/
-  background: url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg)
-    repeat #cfcfe6;
+  margin: 0;
+  padding: 0;
+  background: url('../images/preview-175023-VqkPFjGwsC-high_0009.jpg'); 
   display: block;
-  /* background-attachment: fixed; */
   background-size: contain;
   justify-content: center;
   align-items: center;
+  overflow:scroll;
+  overflow-x:hidden;
+
+
 }
 
 html {
   width: 100%;
   height: 100%;
-  background: url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg) repeat #cfcfe6;
+  background: url('../images/preview-175023-VqkPFjGwsC-high_0009.jpg'); 
   background-size: contain;
-}
+  overflow-x:hidden;
+
+} 
 
 /*-------LATESET ADDITION--------*/
-.top-nav-bar {
-  position: sticky;
-  height: 150px;
-  top: 0;
-  width: 100%;
-  z-index: 2;
-  border-bottom: 1px dotted #1e90ff;
+ .navbar {
+   align-items:center;
+  border-bottom: 7px dotted #1e90ff;
   display: flex;
   justify-content: space-between;
-  margin: 1em;
+  background: url('../images/preview-175023-VqkPFjGwsC-high_0009.jpg'); 
+
+}
+
+.brand-title{
+  font-size:4rem;
+  color:  #1e90ff;
 }
 
 .logo {
-  height: 50px;
-  margin: 50px 8px;
-  background: none;  
-}
-
-.top-nav-bar a {
-  fill: #1e90ff;
-}
-
-.search-box {
-  display: inline-flex;
-  flex-wrap: wrap;
-  vertical-align: baseline;
-  width: 100%;
-  color: white;
-  font-family: Courier;
-  background: url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg)
-    repeat #cfcfe6;
-}
-
-.search-box h2 {
-  margin-top: 15px;
-  font-weight: bold;
-  font-size: 60px;
-  background: none;
-  color: #1e90ff;
-  margin-bottom: 10px;
-  padding: 25px 0;
-}
-
-.menu-bar {
-  width: 100%;
-  display: inline-flex;
-  justify-content: right;
-  justify-content: space-around;
-  height: 45px;
-  background: url(https://motionarray.imgix.net/preview-175023-VqkPFjGwsC-high_0009.jpg)
-    repeat #cfcfe6;
-  margin-top:55px;
-}
-
-.menu-bar ul {
-  display: inline-flex;
-  background: none;
-  float:right;
+  height: 60px;
+  margin: 20px ;
 
 }
 
-.menu-bar ul li {
+.navbar-links ul{
+  margin:0;
+  padding:0;
+  display : flex;
+
+}
+.navbar-links li {
+  list-style:none;
+
+}
+
+.navbar-links li a{
+  text-decoration: none;
+  color:white;
+  padding: 1rem,2rem;
+  display:block;
+}
+
+.navbar-links ul li{
   list-style-type: none;
   padding: 1px 55px;
   text-align: right;
@@ -96,8 +78,8 @@ html {
   background: none;
 }
 
-.menu-bar ul li a {
-  font-size: 35px;
+.navbar-links ul li a{
+  font-size: 25px;
   font-family: Courier;
   font-weight: bold;
   color: white;
@@ -105,47 +87,76 @@ html {
   margin-left: 25px;
 }
 
-.menu-bar ul li a:hover {
+.navbar-links ul li a:hover{
   color: yellow;
 }
 
-.menu-bar ul li a:hover,
-.menu-bar ul li a:active {
+.navbar-links ul li a:hover,
+.navbar-links ul li a:active {
   font-family: Comfortaa;
-  font-size: 35px;
+  font-size: 26px;
   letter-spacing: 2px;
 }
+.toggle-button{
+  position: absolute;
+  top:  .75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
 
-@media only screen and (max-width: 960px) {
-  .top-nav-bar {
-    height: 118px;
-    border-bottom: 0;
+.toggle-button .bar{
+  height:3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 400px){
+  .toggle-button{
+    display:flex;
   }
-  .search-box {
+  .navbar-links{
+    display:none;
     width: 100%;
+    font-family: Courier;
+
   }
-  .menu-bar {
-    width: 100%;
+
+  .navbar{
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .menu-bar ul {
-    margin: 10px 0;
+
+  .navbar-links ul{
     width: 100%;
+    flex-direction: column;
   }
-  .menu-bar ul li {
-    height: 57px;
-    width: 100%;
+
+  .navbar-links li{
+    text-align: center;
+  }
+
+  .navbar-links li a{
+    padding: .5rem 1rem;
+  }
+  .navbar-links.active {
+    display:flex;
   }
 }
+
 
 
 /*-----------------------ASIDE PIC----------------------*/
-header,
-section,
-aside,
-footer {
-  margin: 0 1.5% 24px 1.5%;
-}
 
+section,
+aside
+{
+  margin:  1.5% 24px ;
+} 
 .text-block {
   position: absolute;
   bottom: 20px;
@@ -171,7 +182,7 @@ footer {
   margin-bottom: 20px;
   border:1px solid #1e90ff;
   margin-right: 100px;
-  width: 700px;
+  width: 650px;
   height: 315px;
   position: relative;
   text-align: left;
@@ -191,9 +202,9 @@ footer {
   width:400px;
   height: 250px;
   float: right;
-}
+} 
 
-.bottom-add {
+ .bottom-add {
   text-align: center;
   font-weight: bold;
   font-family: Comfortaa;
@@ -210,24 +221,27 @@ footer {
   font-weight: bold;
   font-family: Comfortaa;
   margin-right: 140px;
-}
+} 
+
 
 
 /*-----------------------CAROUSEL----------------------*/
-.row {
+ .row {
   background: none;
   align-content: center;
   justify-items: center;
   justify-content: center;
 }
+
 .carousel {
   margin-top: 40px;
   margin-bottom: 60px;
+  margin-right:20px;
   width: 100%;
   position: relative;
   color: black;
   background: none;
-  margin-left: 170px;
+
   height: 600px;
 }
 
@@ -296,12 +310,19 @@ footer {
 
 .carousel-indicators .active {
   background-color: red;
+}  
+
+
+ .jumbotron.jumbotron-fluid{
+  background-color:transparent;
+
 }
 
+
 /*------------------------ON SALE-----------------------------*/
-.title-box {
+ .title-box {
   background: #1e90ff;
-  color: #fff;
+  color: rgb(255, 255, 255);
   width: 180px;
   padding: 0px 10px;
   height: 40px;
@@ -317,6 +338,7 @@ footer {
 }
 
 .title-box::after {
+
   color: #fff;
   content: "";
   border-top: 40px solid #1e90ff;
@@ -324,18 +346,25 @@ footer {
   position: absolute;
   display: flex;
   margin-left: 170px;
+
+} 
+#title-container .title-box  h2{
+  text-shadow: 2px 2px 4px #000000;
+  color:white
 }
 
 /*------------------------------CARD----------------------------*/
-.card {
+.card{
+  text-shadow: 2px 2px 4px #000000;
   border-radius: 30px;
-}
 
+}
 .card-deck {
   /* border-bottom: 1px solid #1e90ff; */
   width: 100%;
+  border:none;
 }
-.col-lg-3 .col-md-12 .mb-4 {
+ .col-lg-3 .col-md-12 .mb-4 {
   width: 400px;
   height: 400px;
   margin: 100px auto;
@@ -359,20 +388,19 @@ footer {
   transition: transform 0.4s ease 0s;
 }
 
-.card img {
-  transition: transform 0.8s ease;
-}
 
-.card:hover img {
-  transform: scale(1.1);
-}
 
 /*---------------------------PRODUCT TOP----------------------*/
 .card img {
   width: 100%;
   height: 15vw;
   object-fit: cover;
+  backface-visibility: hidden;
+  transition: transform 0.8s ease;
+  background-color: transparent;
+
 }
+
 .overlay-right {
   display: block;
   opacity: 0;
@@ -394,6 +422,15 @@ footer {
   margin-bottom: 5%;
 }
 
+
+.overlay-right .btn-primary {
+  background: none !important;
+  border: none !important;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 4px #000000;
+}
+
 .overlay span {
   position: absolute;
   top: 50%;
@@ -405,10 +442,19 @@ footer {
   font-family: Sans-serif;
 }
 
-.overlay-right .btn-secondary {
+
+.overlay-right .btn-primary {
   background: none !important;
   border: none !important;
   box-shadow: none !important;
+
+  font-weight: bold;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 4px #000000;
+}
+.overlay-right .btn-primary:hover {
+  text-shadow: 4px 4px 4px #000000;
+
 }
 
 .product-top:hover .overlay-right {
@@ -416,6 +462,41 @@ footer {
   margin-left: 5%;
   transition: 0.5s;
 }
+.product-top .card-img-top {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.product-top:hover .card-img-top  {
+  opacity: 0.1;
+
+}
+
+
+.product-top:hover .middle {
+  opacity: 0.3;
+}
+
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+
+
+
+
 
 /*-----------------------------product bottom--------------------*/
 .product-bottom {
@@ -446,7 +527,7 @@ footer {
   margin-bottom: 0;
 }
 .footer{
-  border-top: 1px dotted #1e90ff;
+  border-top: 7px dotted #1e90ff;
 }
 
 .container-text-center{
@@ -651,4 +732,16 @@ footer {
 #edit_body{
   color:white;
   background-color:transparent;
+}
+#user_list_btn .btn-danger .fa-user-shield ,.fa-user{
+  width:30px;
+}
+
+.text-center.thanks h2{
+  color:greenyellow;
+  font-size:65px;
+}
+.text-center.thanks h1{
+  color:white;
+  font-size:35px;
 }

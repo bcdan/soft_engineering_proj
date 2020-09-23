@@ -27,6 +27,7 @@ app.use(expressLayouts);
 
 //Static folder
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname,'assets')));
 
 
 
@@ -65,6 +66,8 @@ app.use((req, res, next) => {
 	res.locals.success_msg = req.flash('success_msg');
 	res.locals.error_msg = req.flash('error_msg');
 	res.locals.error = req.flash('error');
+	res.locals.session = req.session;
+	res.locals.user = req.user;
 	next();
 });
 

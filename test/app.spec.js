@@ -5,8 +5,8 @@ jest.setTimeout(30000);
 
 describe('POST /users/', () => {
 	it('POST /user/login (invalid)', async () => {
-		const response = await request(app).post('/users/login').send({ email: 'invalid', password: '123456' });
-		expect(response.status).toBe(500);
+		const response = await request(app).post('/users/login').send({ email: 'invalid@invalid.com', password: '123456' });
+		expect(response.status).toBe(401);
 		expect(response.headers['content-type']).toContain('text/html');
 	});
 	it('POST /user/register', async () => {

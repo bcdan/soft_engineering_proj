@@ -1,5 +1,7 @@
 const Game = require('../models/Game');
 const User = require('../models/User');
+//const Order = require('../models/Order');
+const Cart = require('../models/Cart');
 
 //generates random cdkeys
 function generateKeys (game,howMany){
@@ -59,21 +61,38 @@ module.exports = {
 	},
 	//Fill game's inventory in DB 
 	fillInventory:async function (req,res,next){
-		let game;
 		const defaultAmount = 10;
 		const limit =50;
 		try{
-			game = res.game;
-            
-			if(game == null)
-				return res.status(404).json({msg: 'Couldnt find game'});
+			res.dbGames.forEach(async elem=>{
+				if(elem == null)
+					return res.status(404).json({msg: 'Couldnt find game'});
+				if(elem.game.inventory.length<limit){
+					generateKeys(elem.game,defaultAmount);
+				}
+			});
 		}catch(err){
 			return res.status(500).json({ msg: err.message });
 		}
-		if(game.inventory.length<limit){
-			game=generateKeys(game,defaultAmount);
-			await res.game.save();
-		}
 		next();
 	},
+
+	getGamesFromCart:async function (req, res, next) {
+		let dbGames = [];
+		try {
+			let products = new Cart(req.session.cart).generateArray();
+			for(let i =0 ; i<products.length;i++){
+				let singleGame = await Game.findById(products[i].item._id);
+				if(singleGame == null){
+					return res.status(404).json({ msg: 'Cannot find game in DB' });
+				}
+				dbGames.push({game:singleGame,qty:products[i].qty});
+				
+			}
+		} catch (err) {
+			return res.status(500).redirect('/');
+		}
+		res.dbGames=dbGames;
+		next();
+	}
 };
