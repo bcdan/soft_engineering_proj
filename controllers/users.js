@@ -84,19 +84,19 @@ exports.handleLogin = ((req,res,next)=>{
 		let errors = [];
 		if (err) {
 			errors.push({msg:info.message}); 
-			return res.render('login',{title:'Login',errors});
+			return res.status(401).render('login',{title:'Login',errors});
 		}
 		if (!user) { 
 			errors.push({msg:info.message}); 
-			return res.render('login',{title:'Login',errors});
+			return res.status(401).render('login',{title:'Login',errors});
 		}
 		req.logIn(user, function(err) {
 			if (err) {
 				errors.push({msg:info.message}); 
-				return res.render('login',{title:'Login',errors});
+				return res.status(401).render('login',{title:'Login',errors});
 			}
 			req.session.save(function(){ // Known error using express session -> this solves the issue
-				return res.redirect('/dashboard');
+				return res.status(200).redirect('/dashboard');
 			});
 		});
 	})(req, res, next);

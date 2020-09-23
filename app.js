@@ -82,8 +82,4 @@ app.use((req, res) => {
 	res.status(404).render('404', { title: 'Page Not found!',status: req.user });
 });
 
-
-const PORT = process.env.PORT || 5000;
-
-
-app.listen(PORT, console.log(`server started on port ${PORT}`));
+module.exports = app;
