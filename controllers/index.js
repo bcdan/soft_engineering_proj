@@ -45,19 +45,32 @@ exports.postCheckoutPage = (async(req,res) => {
 		await res.dbGames[i].game.save();
 		await req.user.save();	
 	}
-	console.log(req.body);
 	let order = new Order({
 		user : req.user,
 		cart : req.session.cart,
 		address : req.body.address,
 		name : req.body.firstname,
-		paymentId : 999
+		paymentId : getRandomPaymentID()
 	});
-	order.save((err, result) => {
+	await order.save((err, result) => {
 		req.session.cart = null;
 		res.render('shopping/thankyou', { title: 'Thank you!' });
 	});
 });
+
+function getRandomPaymentID(){
+	let ID = '';
+	const maxID = 5,rangeMin = 1 ,rangeMax = 10;
+	for (let index = 0; index < maxID; index++) {
+		ID+=getRandomInt(rangeMin,rangeMax);
+	}
+	return ID;
+}
+function getRandomInt(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 exports.getDashboard = ((req,res)=>{
 	res.render('dashboard',{
