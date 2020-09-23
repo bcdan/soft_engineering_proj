@@ -20,13 +20,17 @@ exports.postProduct = (async (req, res) => {
 		description: req.body.description
 	});
 	try {
-		await game.save();
-		req.flash('success_msg','Game added');
+		let existing = Game.findOne( { game_id: req.body.game_id } );
+		if( existing != undefined ) {
+			req.flash('error_msg', 'ID Already exists');
+		}
+		else {
+			await game.save();
+			req.flash('success_msg','Game added');
+		}
 		res.status(201).redirect('/admin/games');
-
 	} catch (err) {
 		res.status(400).json({ message: err.message });
-
 	}
 });
 
