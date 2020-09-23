@@ -30,7 +30,7 @@ exports.getCheckoutPage = (req,res) => {
 		return res.redirect('/cart');
 	}
 	let cart = new Cart(req.session.cart);
-	res.render('shopping/checkout', { layout:'shopping/shopping-layouts/checkout-layout',title: 'Checkout', total:cart.totalPrice });
+	res.render('shopping/checkout', { layout:'shopping/shopping-layouts/checkout-layout',title: 'Checkout', total:cart.totalPrice,products:cart.generateArray() });
 };
 
 
@@ -45,11 +45,12 @@ exports.postCheckoutPage = (async(req,res) => {
 		await res.dbGames[i].game.save();
 		await req.user.save();	
 	}
+	console.log(req.body);
 	let order = new Order({
 		user : req.user,
 		cart : req.session.cart,
-		address : 'random address for now',
-		name : 'random name',
+		address : req.body.address,
+		name : req.body.firstname,
 		paymentId : 999
 	});
 	order.save((err, result) => {

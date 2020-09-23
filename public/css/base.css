@@ -736,3 +736,12 @@ footer {
 #user_list_btn .btn-danger .fa-user-shield ,.fa-user{
   width:30px;
 }
+
+.text-center.thanks h2{
+  color:greenyellow;
+  font-size:65px;
+}
+.text-center.thanks h1{
+  color:white;
+  font-size:35px;
+}
