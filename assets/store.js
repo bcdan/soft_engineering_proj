@@ -22,7 +22,7 @@ function ready() {
 		$(this).on('click',function(e){
 			e.preventDefault();
 			let gameId = $(this).attr('href');
-			alert(gameId);
+			alert('Added to cart!');
 			$.ajax({
 				type:'GET',
 				url:gameId,

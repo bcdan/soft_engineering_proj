@@ -34,7 +34,6 @@ html {
  .navbar {
    align-items:center;
   border-bottom: 7px dotted #1e90ff;
-  margin:2rem;
   display: flex;
   justify-content: space-between;
   background: url('../images/preview-175023-VqkPFjGwsC-high_0009.jpg'); 
@@ -152,11 +151,11 @@ html {
 
 
 /*-----------------------ASIDE PIC----------------------*/
-header,
+
 section,
-aside,
-footer {
-  margin: 0 1.5% 24px ;
+aside
+{
+  margin:  1.5% 24px ;
 } 
 .text-block {
   position: absolute;

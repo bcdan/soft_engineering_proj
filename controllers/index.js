@@ -85,14 +85,14 @@ exports.getCart = ((req,res)=>{
 exports.reduceByOne = ((req,res)=>{
 	let cart = new Cart(req.session.cart?req.session.cart:{});
 	cart.reduceByOne(res.game.id);
-	req.session.cart = cart;
+	cart.totalQty==0?req.session.cart=null:req.session.cart = cart;
 	res.redirect('/cart');
 });
 
 exports.removeFromCart = ((req,res)=>{
 	let cart = new Cart(req.session.cart?req.session.cart:{});
 	cart.removeItem(res.game.id);
-	req.session.cart = cart;
+	cart.totalQty==0?req.session.cart=null:req.session.cart = cart;
 	res.redirect('/cart');
 
 });
