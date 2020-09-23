@@ -17,18 +17,22 @@ function ready() {
 		navbarLinks.classList.toggle('active');
 	});
 
-	$('#add_cart_btn.btn.btn-primary').on('click',function(e){
-		e.preventDefault();
-		let gameId = $('#add_cart_btn.btn.btn-primary').attr('href');
-		$.ajax({
-			type:'GET',
-			url:gameId,
+	// eslint-disable-next-line no-unused-vars
+	$('.product-top .overlay-right .btn-primary').each(function(_index){
+		$(this).on('click',function(e){
+			e.preventDefault();
+			let gameId = $(this).attr('href');
+			alert(gameId);
+			$.ajax({
+				type:'GET',
+				url:gameId,
+			});
+			$('.toast').toast('show');
+			let currentAmount = parseInt($('.badge').text())+1;
+			$('.badge').text(currentAmount);
 		});
-		$('.toast').toast('show');
-		let currentAmount = parseInt($('.badge').text())+1;
-		$('.badge').text(currentAmount);
 	});
-
+	
 }
 // var removeCartItemButtons = document.getElementsByClassName('btn-danger');
 // for (var i = 0; i < removeCartItemButtons.length; i++) {
