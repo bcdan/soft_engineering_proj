@@ -15,6 +15,10 @@ body {
   background-size: contain;
   justify-content: center;
   align-items: center;
+  overflow:scroll;
+  overflow-x:hidden;
+
+
 }
 
 html {
@@ -219,7 +223,8 @@ footer {
   font-family: Comfortaa;
   margin-right: 140px;
 } 
- 
+
+
 
 /*-----------------------CAROUSEL----------------------*/
  .row {
@@ -307,6 +312,13 @@ footer {
 .carousel-indicators .active {
   background-color: red;
 }  
+
+
+ .jumbotron.jumbotron-fluid{
+  background-color:transparent;
+
+}
+
 
 /*------------------------ON SALE-----------------------------*/
  .title-box {
@@ -466,7 +478,7 @@ footer {
 
 
 .product-top:hover .middle {
-  opacity: 1;
+  opacity: 0.3;
 }
 
 
@@ -721,4 +733,7 @@ footer {
 #edit_body{
   color:white;
   background-color:transparent;
+}
+#user_list_btn .btn-danger .fa-user-shield ,.fa-user{
+  width:30px;
 }
