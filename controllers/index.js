@@ -81,3 +81,18 @@ exports.getCart = ((req,res)=>{
 	let arr = cart.generateArray();
 	res.render('shopping/cart',{layout:'shopping/shopping-layouts/cart-layout',title:'My Cart',products:arr,totalPrice:cart.totalPrice});
 });
+
+exports.reduceByOne = ((req,res)=>{
+	let cart = new Cart(req.session.cart?req.session.cart:{});
+	cart.reduceByOne(res.game.id);
+	req.session.cart = cart;
+	res.redirect('/cart');
+});
+
+exports.removeFromCart = ((req,res)=>{
+	let cart = new Cart(req.session.cart?req.session.cart:{});
+	cart.removeItem(res.game.id);
+	req.session.cart = cart;
+	res.redirect('/cart');
+
+});

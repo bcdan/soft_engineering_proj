@@ -22,6 +22,12 @@ router.post('/checkout/', ensureAuthenticated, getGamesFromCart,fillInventory,sh
 //GET add to cart with ID - > adds an item to cart
 router.get('/add-to-cart/:id',ensureAuthenticated,getGame,shopController.addToCart);
 
+//remove one item from cart
+router.get('/reduce-from-cart/:id',ensureAuthenticated,getGame,shopController.reduceByOne);
+
+//remove all items of same type -> by quantity and id
+router.get('/remove-from-cart/:id',ensureAuthenticated,getGame,shopController.removeFromCart);
+
 //GET cart review page
 router.get('/cart',ensureAuthenticated,shopController.getCart);
 
