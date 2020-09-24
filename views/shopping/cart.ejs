@@ -33,9 +33,9 @@
                     <% if (products){ %>
                     <tbody>
                         <% for(let member of products){ %>
-                      <tr>
-                        <th scope="row">
-                          <div class="p-2">
+                      <tr class="cart_row">
+                        <th scope="row" >
+                          <div class="p-2 ">
                             <img src="<%=member.item.picture%>" alt="" width="70" class="img-fluid rounded shadow-sm">
                             <div class="ml-3 d-inline-block align-middle">
                               <h5 class="mb-0"> <a href="/game/<%=member.item._id%>" class="text-dark d-inline-block"><%=member.item.title%></a></h5><span class="text-muted font-weight-normal font-italic">Category: tba</span>
@@ -43,8 +43,8 @@
                           </div>
                           <td class="align-middle price"><strong>$<%=member.item.price%>.00</strong></td>
                           <td class="align-middle qty"><strong> <%=member.qty%> </strong></td>
-                          <td class="align-middle"><a href="/remove-from-cart/<%=member.item._id%>" class="text-dark remove" role="button"><i class="fa fa-trash"></i></a>
-                            <td class="align-middle"><a href="/reduce-from-cart/<%=member.item._id%>" class="text-dark reduce" role="button"><i class="fas fa-backspace"></i></a>
+                          <td class="align-middle remove"><a href="/remove-from-cart/<%=member.item._id%>" class="text-dark remove" role="button" ><i class="fa fa-trash"></i></a>
+                            <td class="align-middle reduce" ><a href="/reduce-from-cart/<%=member.item._id%>" class="text-dark reduce" role="button" ><i class="fas fa-backspace"></i></a>
 
                           </td>
                       </tr>
@@ -74,7 +74,7 @@
                                       <ul class="list-unstyled mb-4">
                                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
                                             
-                                          <h5 class="font-weight-bold">$<%= typeof totalPrice != 'undefined' ? totalPrice : 0 %>.00</h5>
+                                          <h5 class="font-weight-bold totalPrice">$<%= typeof totalPrice != 'undefined' ? totalPrice : 0 %>.00</h5>
                                         </li>
                                       </ul><a href="/checkout" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
                                     </div>

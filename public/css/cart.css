@@ -46,13 +46,12 @@
   }
   
   .logo {
-    height: 60px;
-    margin: 20px ;
+    height: 7rem;
   
   }
   
   .navbar-links ul{
-    margin:0;
+    margin-top:3rem;
     padding:0;
     display : flex;
   
