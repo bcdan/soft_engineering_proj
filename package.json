@@ -41,7 +41,7 @@
 		"supertest": "^4.0.2"
 	},
 	"scripts": {
-		"dev": "nodemon app.js -e js",
+		"dev": "nodemon start.js -e js",
 		"test:lint": "eslint .",
 		"test:jest": "jest .",
 		"test": "npm run test:lint && npm run test:jest",

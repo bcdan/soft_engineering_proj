@@ -58,6 +58,7 @@ exports.postCheckoutPage = (async(req,res) => {
 	});
 });
 
+
 function getRandomPaymentID(){
 	let ID = '';
 	const maxID = 5,rangeMin = 1 ,rangeMax = 10;
@@ -89,24 +90,30 @@ exports.addToCart = ((req,res)=>{
 
 exports.getCart = ((req,res)=>{
 	if(!req.session.cart){
-		return res.render('shopping/cart',{layout:'shopping/shopping-layouts/cart-layout',title:'My Cart',products:null});
+		return res.status(200).render('shopping/cart',{layout:'shopping/shopping-layouts/cart-layout',title:'My Cart',products:null});
 	}
 	let cart = new Cart(req.session.cart);
 	let arr = cart.generateArray();
-	res.render('shopping/cart',{layout:'shopping/shopping-layouts/cart-layout',title:'My Cart',products:arr,totalPrice:cart.totalPrice});
+	res.status(200).render('shopping/cart',{layout:'shopping/shopping-layouts/cart-layout',title:'My Cart',products:arr,totalPrice:cart.totalPrice});
 });
 
 exports.reduceByOne = ((req,res)=>{
 	let cart = new Cart(req.session.cart?req.session.cart:{});
+	if(cart.items[res.game.id]==null){
+		return res.status(200).redirect('/cart');
+	}
 	cart.reduceByOne(res.game.id);
 	cart.totalQty==0?req.session.cart=null:req.session.cart = cart;
-	res.redirect('/cart');
+	res.status(200).redirect('/cart');
 });
 
 exports.removeFromCart = ((req,res)=>{
 	let cart = new Cart(req.session.cart?req.session.cart:{});
+	if(cart.items[res.game.id]==null){
+		return res.status(200).redirect('/cart');
+	}
 	cart.removeItem(res.game.id);
 	cart.totalQty==0?req.session.cart=null:req.session.cart = cart;
-	res.redirect('/cart');
+	res.status(200).redirect('/cart');
 
 });
