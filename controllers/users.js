@@ -83,16 +83,16 @@ exports.handleLogin = ((req,res,next)=>{
 	passport.authenticate('local', function(err, user,info) {
 		let errors = [];
 		if (err) {
-			errors.push({msg:info.message}); 
+			errors.push({msg:info.message});
 			return res.status(401).render('login',{title:'Login',errors});
 		}
-		if (!user) { 
-			errors.push({msg:info.message}); 
+		if (!user) {
+			errors.push({msg:info.message});
 			return res.status(401).render('login',{title:'Login',errors});
 		}
 		req.logIn(user, function(err) {
 			if (err) {
-				errors.push({msg:info.message}); 
+				errors.push({msg:info.message});
 				return res.status(401).render('login',{title:'Login',errors});
 			}
 			req.session.save(function(){ // Known error using express session -> this solves the issue
@@ -107,3 +107,4 @@ exports.handleLogout = ((req, res) => {
 	req.flash('success_msg', 'You are logged out');
 	res.redirect('/users/login');
 });
+

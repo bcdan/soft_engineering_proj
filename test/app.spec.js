@@ -11,8 +11,8 @@ describe('POST /users/', () => {
 	});
 	it('POST /user/register', async () => {
 		const response = await request(app).post('/users/register').send( {
-			firstName: 'test', 
-			lastName: 'test', 
+			firstName: 'test',
+			lastName: 'test',
 			email: 'test@test',
 			password: '123456',
 			password2: '123456'
@@ -35,7 +35,7 @@ describe('GET /admin/', () => {
 		expect(response.headers['location']).toBe('/users/login');
 		// usage of the done function
 	});
-	it('GET /admin/ (valid)', async () => { 
+	it('GET /admin/ (valid)', async () => {
 		const response = await request(app).post('/users/login').send({ email: 'sinos@gmail.com', password: '12341234'});
 		expect(response.status).toBe(302);
 		expect(response.headers['location']).toBe('/dashboard');
