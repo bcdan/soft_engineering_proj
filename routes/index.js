@@ -1,34 +1,38 @@
 const express = require('express');
 const router = express.Router();
-const shopController = require('../controllers/index');
+const ShopController = require('../controllers/index');
 const { ensureAuthenticated } = require('../config/auth');
 const {getGame, fillInventory, getGamesFromCart} = require('./middlewares');
 
 //Home page
-router.get('/', shopController.getShop); // Home page / general store
+router.get('/', ShopController.getShop); // Home page / general store
 
 //get game page
-router.get('/game/:id', getGame,shopController.getGamePage); // single game page 
+router.get('/game/:id', getGame,ShopController.getGamePage); // single game page
 
 //Profile page
-router.get('/dashboard', ensureAuthenticated, shopController.getDashboard); 
+router.get('/dashboard', ensureAuthenticated, ShopController.getDashboard);
 
 //Payment/checkout page
-router.get('/checkout/', ensureAuthenticated,  shopController.getCheckoutPage); 
+router.get('/checkout/', ensureAuthenticated,  ShopController.getCheckoutPage);
 
 //Post payment / checkout page
-router.post('/checkout/', ensureAuthenticated, getGamesFromCart,fillInventory,shopController.postCheckoutPage); 
+router.post('/checkout/', ensureAuthenticated, getGamesFromCart,fillInventory,ShopController.postCheckoutPage);
 
 //GET add to cart with ID - > adds an item to cart
-router.get('/add-to-cart/:id',ensureAuthenticated,getGame,shopController.addToCart);
+router.get('/add-to-cart/:id',ensureAuthenticated,getGame,ShopController.addToCart);
 
 //remove one item from cart - > reducing by one
-router.get('/reduce-from-cart/:id',ensureAuthenticated,getGame,shopController.reduceByOne);
+router.get('/reduce-from-cart/:id',ensureAuthenticated,getGame,ShopController.reduceByOne);
 
 //remove all items of same type -> by quantity and id
-router.get('/remove-from-cart/:id',ensureAuthenticated,getGame,shopController.removeFromCart);
+router.get('/remove-from-cart/:id',ensureAuthenticated,getGame,ShopController.removeFromCart);
 
 //GET cart review page
-router.get('/cart',ensureAuthenticated,shopController.getCart);
+router.get('/cart',ensureAuthenticated,ShopController.getCart);
+
+//GET user's inventory
+router.get('/dashboard/inventory',ensureAuthenticated,ShopController.myInventory);
+
 
 module.exports = router;

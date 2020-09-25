@@ -1,35 +1,35 @@
 const express = require('express');
 const router = express.Router();
-const adminController = require('../controllers/admin');
+const AdminController = require('../controllers/admin');
 const { ensureAuthenticatedAdmin } = require('../config/auth');
-const {getGame,getUser,fillInventory} = require('./middlewares');
+const { getGame, getUser, fillInventory } = require('./middlewares');
 
 
 
 //Admin page
-router.get('/', ensureAuthenticatedAdmin, adminController.getAdminPage);
+router.get('/', ensureAuthenticatedAdmin, AdminController.getAdminPage);
 //Games list via admin page
-router.get('/games', ensureAuthenticatedAdmin, adminController.getAllGames);
+router.get('/games', ensureAuthenticatedAdmin, AdminController.getAllGames);
 //Add product to DB
-router.post('/add-product', ensureAuthenticatedAdmin, adminController.postProduct);
+router.post('/add-product', ensureAuthenticatedAdmin, AdminController.postProduct);
 //Get a single game from DB by ID
-router.get('/games/:id', ensureAuthenticatedAdmin, getGame, adminController.getSingleGame);
+router.get('/games/:id', ensureAuthenticatedAdmin, getGame, AdminController.getSingleGame);
 //Edit a game by ID
-router.get('/edit-product/:id', ensureAuthenticatedAdmin, getGame, adminController.getEditProductPage);
+router.get('/edit-product/:id', ensureAuthenticatedAdmin, getGame, AdminController.getEditProductPage);
 //Fill game's inventory by ID
-router.get('/fill-product/:id', ensureAuthenticatedAdmin, getGame, fillInventory, adminController.adminFillInventory);
+router.get('/fill-product/:id', ensureAuthenticatedAdmin, getGame, fillInventory, AdminController.adminFillInventory);
 //View game's inventory by ID
-router.get('/view-inventory/:id',ensureAuthenticatedAdmin, getGame, adminController.viewInventory);
+router.get('/view-inventory/:id',ensureAuthenticatedAdmin, getGame, AdminController.viewInventory);
 //Post-edit game by ID
-router.post('/edit-product/:id', ensureAuthenticatedAdmin, getGame, adminController.editGame);
+router.post('/edit-product/:id', ensureAuthenticatedAdmin, getGame, AdminController.editGame);
 //Delete game by ID
-router.post('/delete-product/:id', ensureAuthenticatedAdmin,getGame, adminController.deleteGame);
+router.post('/delete-product/:id', ensureAuthenticatedAdmin,getGame, AdminController.deleteGame);
 //Get users list via admin page
-router.get('/get-users', ensureAuthenticatedAdmin, adminController.getUsersList);
+router.get('/get-users', ensureAuthenticatedAdmin, AdminController.getUsersList);
 //Get a single user by ID from DB
-router.get('/get-users/:id', ensureAuthenticatedAdmin, getUser, adminController.getUser);
+router.get('/get-users/:id', ensureAuthenticatedAdmin, getUser, AdminController.getUser);
 //Change a user's role by ID
-router.post('/get-users/:id', ensureAuthenticatedAdmin, getUser, adminController.changeRole);
+router.post('/get-users/:id', ensureAuthenticatedAdmin, getUser, AdminController.changeRole);
 
 
 module.exports = router;

@@ -117,3 +117,7 @@ exports.removeFromCart = ((req,res)=>{
 	res.status(200).redirect('/cart');
 
 });
+
+exports.myInventory = ((req,res)=>{
+	res.json({inventory:req.user.inventory});
+});
