@@ -744,3 +744,26 @@ footer {
   color:white;
   font-size:35px;
 }
+
+#dashboard_list .list-group-item{
+  background-color: transparent;
+  margin:auto;
+}
+
+#dashboard_list .btn.btn-danger{
+  width:100%;
+}
+
+.dash-btn {
+  width: 200px !important;
+  text-shadow: 2px 2px 4px #000000;
+
+}
+.list-group-item.inventory_game{
+  border:none;
+}
+
+.modal-header{
+  color:white;
+  background:#343a40;
+}
