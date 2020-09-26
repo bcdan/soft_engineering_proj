@@ -28,13 +28,13 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <span class="badge badge-success"><%=game.price%></span>
-                    <!--<p id="price">USD $40.00</p>--->    
-                        <p id="genre"><b>Genre:</b> Shooter</p>
-                        <p id="company"><b>Company:</b> Rockstar games</p>     
+                        <p id="price">USD $40.00</p>-    
+                        <p id="genre"><b>Genre:</b> <%=game.genre%></p>
+                        <p id="company"><b>Publisher:</b> <%=game.publisher%></p>     
                     </p>
 
                     <div class="button">
-                      <a class="btn btn-info float" href="/payment/<%=game.id%>" role="button"><i class="fas fa-arrow-circle-left"></i> BUY</a>
+                      <a class="btn btn-info float" href="/add-to-cart/<%=game.id%>" role="button"><i class="fas fa-cart-plus"></i> ADD TO CART</a>
                     </div>              
                   </div>
             </div>

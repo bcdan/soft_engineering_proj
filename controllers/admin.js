@@ -17,7 +17,9 @@ exports.postProduct = (async (req, res) => {
 		title: req.body.title,
 		picture: req.body.picture,
 		price: req.body.price,
-		description: req.body.description
+		description: req.body.description,
+		genre:req.body.genre,
+		publisher:req.body.publisher
 	});
 	try {
 		let existing = Game.findOne( { game_id: req.body.game_id } );
@@ -42,7 +44,7 @@ exports.getAllGames = (async (req, res) => {
 		games.forEach(agame => {
 			gameArray.push(agame);
 		});
-		
+
 		res.render('games-manager', { title: 'Admin game list', products: gameArray });
 
 	} catch (err) {
@@ -82,6 +84,12 @@ exports.editGame = (async (req, res) => {
 	if (req.body.description != null) {
 		res.game.description = req.body.description;
 	}
+	if (req.body.publisher != null) {
+		res.game.publisher = req.body.publisher;
+	}
+	if (req.body.genre != null) {
+		res.game.genre = req.body.genre;
+	}
 	try {
 		await res.game.save();
 		req.flash('success_msg','Game updated');
@@ -107,7 +115,7 @@ exports.deleteGame = (async (req, res) => {
 
 exports.adminFillInventory = (async (req,res)=>{
 	req.flash('success_msg','Game inventory filled');
-	res.redirect('/admin/games');	
+	res.redirect('/admin/games');
 });
 
 
@@ -158,6 +166,6 @@ exports.changeRole = (async (req,res)=>{
 		res.redirect('/admin/get-users');
 	} catch (err) {
 		res.status(400).json({ message: err.message });
-	}	
+	}
 
 });
