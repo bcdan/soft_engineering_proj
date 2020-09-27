@@ -756,7 +756,7 @@ footer {
 
 .dash-btn {
   width: 200px !important;
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 6px 6px 8px #000000;
 
 }
 .list-group-item.inventory_game{
@@ -766,4 +766,9 @@ footer {
 .modal-header{
   color:white;
   background:#343a40;
+}
+
+#dashboard_list .list-group-item .fas {
+  float:left;
+  margin-top:3px;
 }
