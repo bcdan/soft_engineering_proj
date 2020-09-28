@@ -28,6 +28,14 @@ const GameSchema = new mongoose.Schema({
 	description: {
 		type: String,
 		required: false
+	},
+	genre:{
+		type: String,
+		required: true
+	},
+	publisher:{
+		type: String,
+		required: true
 	}
 });
 

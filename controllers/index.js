@@ -20,7 +20,7 @@ exports.getShop = (async(req, res) => {
 
 //GET single game page
 exports.getGamePage = (req,res) => {
-	res.render('game', { title: res.game.title, game: res.game });
+	res.render('game', {layout:'game-layout',title: res.game.title, game: res.game });
 };
 
 
@@ -43,7 +43,7 @@ exports.postCheckoutPage = (async(req,res) => {
 			req.user.inventory.games.push({cdkey:gameInCart.game.inventory.pop().cdkey ,title: gameInCart.game.title});
 		}
 		await res.dbGames[i].game.save();
-		await req.user.save();	
+		await req.user.save();
 	}
 	let order = new Order({
 		user : req.user,
