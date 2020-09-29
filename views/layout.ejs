@@ -33,6 +33,18 @@
             </a>
             <div class="navbar-links">
                 <ul>
+                    <li>
+                        <div class="form-group">
+                            <input
+                            type="text"
+                            id="search"
+                            class="form-control form-control-lg"
+                            placeholder="Search game name"
+                            />
+                        </div>
+                        <div id="match-list"></div>
+                        
+                    </li>
                     <li><a href="/dashboard">Profile</a></li>
                     <% if(user != null){  %>  
                         <% if(!session.cart){%>
@@ -44,6 +56,7 @@
                         <li><a href="/users/register">Sign up</a></li>
                         <li><a href="/users/login">Log in</a> </li>    
                     <%}%>
+
                 </ul>
             </div>
     </nav>
