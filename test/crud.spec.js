@@ -6,8 +6,8 @@ const Game = require('../models/Game');
 
 jest.setTimeout(30000);
 
-describe('Admin authentication', () => {	
-	it('Create admin session', async () => { 
+describe('Admin authentication', () => {
+	it('Create admin session', async () => {
 		jest.setTimeout(30000);
 		await agent.post('/users/login').send({email: 'sinos@gmail.com', password: '12341234'}).expect(302)
 			.then(res => {
@@ -18,12 +18,14 @@ describe('Admin authentication', () => {
 });
 
 describe('CRUD testing on Games', () => {
-	const testGame = { 
+	const testGame = {
 		game_id: 5554,
 		title: 'title',
 		picture: 'picture',
 		price: 15,
-		description: 'description'
+		description: 'description',
+		genre:'genre',
+		publisher:'somepublisher'
 	};
 	it('Authenticating admin session', async () => {
 		await agent.get('/admin/').expect(200);

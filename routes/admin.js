@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const AdminController = require('../controllers/admin');
 const { ensureAuthenticatedAdmin } = require('../config/auth');
-const { getGame, getUser, fillInventory } = require('./middlewares');
+const { getGame, getUser, fillSingleInventory } = require('./middlewares');
 
 
 
@@ -17,7 +17,7 @@ router.get('/games/:id', ensureAuthenticatedAdmin, getGame, AdminController.getS
 //Edit a game by ID
 router.get('/edit-product/:id', ensureAuthenticatedAdmin, getGame, AdminController.getEditProductPage);
 //Fill game's inventory by ID
-router.get('/fill-product/:id', ensureAuthenticatedAdmin, getGame, fillInventory, AdminController.adminFillInventory);
+router.get('/fill-product/:id', ensureAuthenticatedAdmin, getGame, fillSingleInventory, AdminController.adminFillInventory);
 //View game's inventory by ID
 router.get('/view-inventory/:id',ensureAuthenticatedAdmin, getGame, AdminController.viewInventory);
 //Post-edit game by ID

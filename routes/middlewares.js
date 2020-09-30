@@ -7,7 +7,7 @@ function generateKeys (game,howMany){
 
 	let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZ';
 	let blockLen = 5;
-	let numOfBlocks = 3; 
+	let numOfBlocks = 3;
 	let keysToGenerate = howMany;
 
 	for(let k=0;k<keysToGenerate;k++){
@@ -39,7 +39,7 @@ module.exports = {
 		} catch (err) {
 			return res.status(500).redirect('/');
 		}
-    
+
 		res.game = game;
 		next();
 	},
@@ -58,7 +58,7 @@ module.exports = {
 		res.user=user;
 		next();
 	},
-	//Fill game's inventory in DB 
+	//Fill games' inventory currently in cart
 	fillInventory:async function (req,res,next){
 		const defaultAmount = 10;
 		const limit =50;
@@ -76,6 +76,21 @@ module.exports = {
 		next();
 	},
 
+	fillSingleInventory:async function (req,res,next){
+		const defaultAmount = 10;
+		const limit =50;
+		try{
+			if(res.game.inventory.length<limit){
+				generateKeys(res.game,defaultAmount);
+				res.game.save();
+			}
+
+		}catch(err){
+			return res.status(500).json({ msg: err.message });
+		}
+		next();
+	},
+
 	getGamesFromCart:async function (req, res, next) {
 		let dbGames = [];
 		try {
@@ -86,7 +101,7 @@ module.exports = {
 					return res.status(404).json({ msg: 'Cannot find game in DB' });
 				}
 				dbGames.push({game:singleGame,qty:products[i].qty});
-				
+
 			}
 		} catch (err) {
 			return res.status(500).redirect('/');
