@@ -1,22 +1,41 @@
 const express = require('express');
 const router = express.Router();
-const shopController = require('../controllers/index');
+const ShopController = require('../controllers/index');
 const { ensureAuthenticated } = require('../config/auth');
+const {getGame, fillInventory, getGamesFromCart} = require('./middlewares');
 
 //Home page
-router.get('/', shopController.getShop); 
+router.get('/', ShopController.getShop); // Home page / general store
 
 //get game page
-router.get('/game/:id', shopController.getGamePage); // single game page -> add ejs stuff
+router.get('/game/:id', getGame,ShopController.getGamePage); // single game page
 
 //Profile page
-router.get('/dashboard', ensureAuthenticated, shopController.getDashboard); //add inventory view per user
-//todo : add payment route
+router.get('/dashboard', ensureAuthenticated, ShopController.getDashboard);
 
-router.get('/payment/:id', ensureAuthenticated, shopController.getGamePayment); //add inventory view per user
-//todo : add payment route
+//Payment/checkout page
+router.get('/checkout/', ensureAuthenticated,  ShopController.getCheckoutPage);
 
-router.post('/payment/:id', ensureAuthenticated,shopController.postGamePayment); //add inventory view per user
+//Post payment / checkout page
+router.post('/checkout/', ensureAuthenticated, getGamesFromCart,fillInventory,ShopController.postCheckoutPage);
+
+//GET add to cart with ID - > adds an item to cart
+router.get('/add-to-cart/:id',ensureAuthenticated,getGame,ShopController.addToCart);
+
+//remove one item from cart - > reducing by one
+router.get('/reduce-from-cart/:id',ensureAuthenticated,getGame,ShopController.reduceByOne);
+
+//remove all items of same type -> by quantity and id
+router.get('/remove-from-cart/:id',ensureAuthenticated,getGame,ShopController.removeFromCart);
+
+//GET cart review page
+router.get('/cart',ensureAuthenticated,ShopController.getCart);
+
+//GET user's inventory
+router.get('/dashboard/inventory',ensureAuthenticated,ShopController.myInventory);
+
+//GET all games -> json
+router.get('/games',ShopController.getGamesJson);
 
 
 module.exports = router;

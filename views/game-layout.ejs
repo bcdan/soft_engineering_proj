@@ -6,7 +6,7 @@
     <title><%= title %></title>
     <link rel="icon" href="/icon.png" >
     <script src="https://kit.fontawesome.com/6cc0b677b4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/game.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/6cc0b677b4.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -26,26 +26,11 @@
             <div class="brand-title ">
                 <a href="/"><img src="/images/rsz_sitelogo.png" class="logo "></a>
             </div>
-
-            </div>
             <a href="#"class="toggle-button">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </a>
-            <div class="search-div mx-auto">
-                <div class="form-group">
-                    <input
-                    type="text"
-                    id="search"
-                    class="form-control form-control-lg"
-                    placeholder="Search games"
-                    maxlength="18"
-                    />
-                    <button type="submit" ><i class="fa fa-search"></i></button>
-                    </div>
-                    <div id="match-list"></div>
-                </div>
             <div class="navbar-links">
                 <ul>
                     <li><a href="/dashboard">Profile</a></li>
@@ -59,12 +44,8 @@
                         <li><a href="/users/register">Sign up</a></li>
                         <li><a href="/users/login">Log in</a> </li>    
                     <%}%>
-
-
                 </ul>
             </div>
-
-
     </nav>
 
     <%- body %>

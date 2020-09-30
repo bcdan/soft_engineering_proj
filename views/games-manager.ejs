@@ -13,24 +13,33 @@
             <form action="/admin/add-product" method="POST">
                 <div class="form-group">
                     <label for="game_id">Game ID</label>
-                    <input class="form-control" type="number" id="game_id" name="game_id">
+                    <input class="form-control" type="number" id="game_id" name="game_id" required>
                 </div>
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input class="form-control" id="title" name="title">
+                    <input class="form-control" id="title" name="title" required>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input class="form-control" type="number" id="price" name="price" placeholder="Price in Schmekels only"> 
+                    <input class="form-control" type="number" id="price" name="price" placeholder="Price in Schmekels only" required> 
                 </div>
                 <div class="form-group">
                     <label for="picture">Image URL</label>
-                    <input class="form-control" id="picture" name="picture">
+                    <input class="form-control" id="picture" name="picture" required>
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea class="form-control" id="description" name="description"></textarea>
                 </div>
+                <div class="form-group">
+                  <label for="genre">Genre</label>
+                  <input class="form-control" id="genre" name="genre" required>
+                </div>
+                <div class="form-group">
+                  <label for="publisher">Publisher</label>
+                  <input class="form-control" id="publisher" name="publisher" required>
+                </div>
+              
                 <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Add game</button>
 
             </form>
@@ -53,8 +62,8 @@
         </div>
                 <div class="row">
                     <div class="col-md-12 text-right">
-                        <a class="btn btn-info float" href="/admin/" role="button"style="width:80px;margin-bottom: 5px;"><i class="fas fa-arrow-circle-left"></i> BACK</a>
-                        <button class="btn btn-success float" data-toggle="modal" data-target="#add" style="width:80px;margin-bottom: 5px;"><i class="fas fa-plus"></i> ADD</button>
+                        <a class="btn btn-info float" href="/admin/" role="button"><i class="fas fa-arrow-circle-left"></i> BACK</a>
+                        <button class="btn btn-success float" data-toggle="modal" data-target="#add"><i class="fas fa-plus"></i> ADD</button>
                     </div>
 
                 </div>
