@@ -187,7 +187,7 @@ aside
 .upper-add p{
     position: absolute;
     top: 0px;
-    left: 16px;
+    left: 45px;
     font-size: 28px;
     margin-top:35px;
 }
@@ -199,14 +199,13 @@ aside
   float: right;
 } 
 
-
-
 .bottom-add img{
   padding-right: 0px;
   width:450px;
   height: 320px;
   float: right;
 }
+
 .bottom-add{
   color: yellow;
   font-weight: bold;
@@ -221,12 +220,11 @@ aside
 }
 
 
-
 .bottom-add p{
   position: absolute;
   top: 0px;
-  left: 3rem;
-  font-size: 28px;
+  left: 2rem;
+  font-size: 40px;
   margin-top:7rem;
 } 
 
