@@ -12,28 +12,29 @@ exports.getAdminPage = (req, res) => {
 
 //post game
 exports.postProduct = (async (req, res) => {
-	const game = new Game({
-		game_id: req.body.game_id,
-		title: req.body.title,
-		picture: req.body.picture,
-		price: req.body.price,
-		description: req.body.description,
-		genre:req.body.genre,
-		publisher:req.body.publisher
-	});
-	try {
-		let existing = Game.findOne( { game_id: req.body.game_id } );
-		if( existing != undefined ) {
+
+	Game.findOne( { game_id: req.body.game_id } ).then(existing=>{
+		if( existing ) {
 			req.flash('error_msg', 'ID Already exists');
 		}
 		else {
-			await game.save();
+			const game = new Game({
+				game_id: req.body.game_id,
+				title: req.body.title,
+				picture: req.body.picture,
+				price: req.body.price,
+				description: req.body.description,
+				genre:req.body.genre,
+				publisher:req.body.publisher
+			});
+			game.save();
 			req.flash('success_msg','Game added');
 		}
 		res.status(201).redirect('/admin/games');
-	} catch (err) {
-		res.status(400).json({ message: err.message });
-	}
+	}).catch(err=>res.status(400).json({ message: err.message }));
+
+
+
 });
 
 //get all games
