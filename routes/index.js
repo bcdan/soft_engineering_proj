@@ -34,5 +34,8 @@ router.get('/cart',ensureAuthenticated,ShopController.getCart);
 //GET user's inventory
 router.get('/dashboard/inventory',ensureAuthenticated,ShopController.myInventory);
 
+//GET all games -> json
+router.get('/games',ShopController.getGamesJson);
+
 
 module.exports = router;

@@ -52,6 +52,8 @@ exports.getAllGames = (async (req, res) => {
 	}
 });
 
+
+
 //get one game
 exports.getSingleGame = (req, res) => {
 	res.send(res.game);

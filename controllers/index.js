@@ -121,3 +121,17 @@ exports.removeFromCart = ((req,res)=>{
 exports.myInventory = ((req,res)=>{
 	res.json({inventory:req.user.inventory});
 });
+
+
+exports.getGamesJson = (async (req,res)=>{
+	try{
+		const games = await Game.find();
+		const gameArray = [];
+		games.forEach(product => {
+			gameArray.push({id:product._id,title:product.title,picture:product.picture});
+		});
+		res.send(gameArray);
+	}catch(err){
+		res.status(500).json({message:err.message});
+	}
+});
