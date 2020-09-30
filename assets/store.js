@@ -47,6 +47,7 @@ function ready() {
 						<h5>${match.title}</h5>
 					</div>
 				</div>
+				<hr>
 			</div>
 			`).join('');
 			matchList.innerHTML = div;

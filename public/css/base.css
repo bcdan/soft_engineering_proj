@@ -86,12 +86,9 @@ html {
   margin-left: 25px;
 }
 
-.navbar-links ul li a:hover{
-  color: yellow;
-}
-
 .navbar-links ul li a:hover,
 .navbar-links ul li a:active {
+  color: yellow;
   font-family: Comfortaa;
   font-size: 26px;
   letter-spacing: 2px;
@@ -799,6 +796,8 @@ footer {
 
 #match-list h5{
   text-align: center;
+  font-size:1rem;
+  padding-top:1.5rem;
 
 }
 
@@ -809,4 +808,62 @@ footer {
 
 .search-div{
   margin-top : auto;
+  position: relative;
+}
+
+#match-list .p-2:hover{
+  transform: scale(1.1);
+  opacity: 0.5;
+  transition: transform 0.4s ease 0s;
+}
+#match-list {
+  font-size: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(45,63,81);
+  text-shadow: 2px 2px 4px #000000;
+  box-shadow:4px 15px 10px 0px rgba(0,0,0,0.8);
+}
+
+#match-list hr{
+  border-top:1px solid rgb(196 197 199);
+  border:0;
+  margin-bottom: 0%;
+  margin-top: 0%;
+}
+
+
+::placeholder{
+  color:white;
+  opacity: 1;
+  font-size: 1.2em;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color:white;
+  opacity: 1;
+}
+#search{
+  border-radius:1rem;
+  color:black;
+  font-family: Courier;
+  font-style: italic;
+  font-weight: 420;
+  border-color: transparent;
+  padding-top:15px;
+  padding-left:25px;
+
+}
+
+.search-div button{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* padding-right:1rem;
+  padding-top:1rem; */
+  margin:10px;
+  background-color: transparent;
 }
