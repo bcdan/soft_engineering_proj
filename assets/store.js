@@ -40,11 +40,11 @@ function ready() {
 			const div = matches.map(match=> `
 			<div class="p-2">
 				<div class="row">
-					<div class="col-5">
+					<div class="col-5 text-left">
 						<a href="/game/${match.id}"><img src="${match.picture}" alt="" width="70" class="img-fluid rounded shadow-sm"></a>
 					</div>
-					<div class="col-7">
-						<h4>${match.title}</h4>
+					<div class="col-5 text-center">
+						<h5>${match.title}</h5>
 					</div>
 				</div>
 			</div>
